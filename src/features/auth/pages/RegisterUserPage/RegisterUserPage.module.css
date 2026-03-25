@@ -1,0 +1,187 @@
+/* ─── Register Page ──────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #24243e 100%);
+  padding: 2rem 1rem;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 560px;
+  padding: 2.5rem 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(108, 92, 231, 0.08);
+  animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  margin-bottom: 0.5rem;
+}
+
+.logoIcon {
+  font-size: 2.75rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.title {
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+/* ─── Divider ────────────────────────────────────────────────── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(108, 92, 231, 0.35),
+    transparent
+  );
+}
+
+.dividerText {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(162, 155, 254, 0.7);
+  white-space: nowrap;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Background Circles ────────────────────────────────────── */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bgCircle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+}
+
+.bgCircle1 {
+  width: 420px;
+  height: 420px;
+  background: #6c5ce7;
+  top: -120px;
+  right: -80px;
+  animation: pulseBg 8s ease-in-out infinite;
+}
+
+.bgCircle2 {
+  width: 320px;
+  height: 320px;
+  background: #00cec9;
+  bottom: -100px;
+  left: -100px;
+  animation: pulseBg 10s ease-in-out infinite 2s;
+}
+
+.bgCircle3 {
+  width: 180px;
+  height: 180px;
+  background: #fd79a8;
+  top: 40%;
+  left: 65%;
+  animation: pulseBg 6s ease-in-out infinite 1s;
+}
+
+.bgCircle4 {
+  width: 260px;
+  height: 260px;
+  background: #a29bfe;
+  bottom: 25%;
+  right: -60px;
+  animation: pulseBg 9s ease-in-out infinite 3s;
+}
+
+@keyframes pulseBg {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50% { transform: scale(1.15); opacity: 0.2; }
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .page {
+    padding: 1rem 0.75rem;
+  }
+
+  .card {
+    padding: 2rem 1.25rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 640px) {
+  .card {
+    max-width: 440px;
+    padding: 2rem 1.5rem;
+  }
+}
