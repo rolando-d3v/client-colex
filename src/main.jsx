@@ -14,7 +14,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./config/queryClient";
 
 //auth
-import { AuthInitializer } from "./features/auth/components/AuthInitializer/AuthInitializer";
+import { AuthInitializer } from "./modules/auth/components/AuthInitializer/AuthInitializer";
 
 import { Toaster } from "sonner";
 import "./styles/index.css";

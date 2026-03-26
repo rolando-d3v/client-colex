@@ -10,10 +10,10 @@ import AuthLayout from "../components/layout/AuthLayout/AuthLayout";
 import MainLayout from "../components/layout/MainLayout/MainLayout";
 
 // ─── Auth pages ─────────────────────────────────────────────
-import LoginPage from "../features/auth/pages/LoginPage/LoginPage";
-import RecoverPage from "../features/auth/pages/RecoverPage/RecoverPage";
-import RegisterUserPage from "../features/auth/pages/RegisterUserPage/RegisterUserPage";
-import UnauthorizedPage from "../features/auth/pages/UnauthorizedPage/UnauthorizedPage";
+import LoginPage from "../modules/auth/pages/LoginPage/LoginPage";
+import RecoverPage from "../modules/auth/pages/RecoverPage/RecoverPage";
+import RegisterUserPage from "../modules/auth/pages/RegisterUserPage/RegisterUserPage";
+import UnauthorizedPage from "../modules/auth/pages/UnauthorizedPage/UnauthorizedPage";
 
 // ─── Placeholder para páginas aún no implementadas ──────────
 const ComingSoon = ({ title }) => (

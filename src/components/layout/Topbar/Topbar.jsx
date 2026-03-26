@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useAuth } from "../../../features/auth/hooks/useAuth";
+import { useAuth } from "../../../modules/auth/hooks/useAuth";
 import { toggleDarkMode, openToggleSidebar } from "../../../Redux/settingAppSlice";
 import { FiMenu, FiSun, FiMoon, FiBell, FiUser } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";

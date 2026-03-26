@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router";
-import { useAuth } from "../../../features/auth/hooks/useAuth";
+import { useAuth } from "../../../modules/auth/hooks/useAuth";
 import { ROLES } from "../../../config/constants";
 import {
   FiHome,

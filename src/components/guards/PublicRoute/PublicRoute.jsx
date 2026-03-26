@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router";
-import { useAuth } from "../../../features/auth/hooks/useAuth";
+import { useAuth } from "../../../modules/auth/hooks/useAuth";
 
 /**
  * Protege rutas públicas (login, recover, register).
