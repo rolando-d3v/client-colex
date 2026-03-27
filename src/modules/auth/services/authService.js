@@ -4,17 +4,30 @@ import api from "../../../config/axios";
 export const loginService = (credentials) =>
   api.post("/auth/login", credentials).then((res) => res.data);
 
-// ─── Registro ───────────────────────────────────────────────
-export const registerService = (userData) =>
-  api.post("/auth/register", userData).then((res) => res.data);
-
 // ─── Verificar sesión (cookie HttpOnly) ─────────────────────
 export const verifySessionService = () =>
-  api.get("/auth/verify").then((res) => res.data);
+  api.get("/auth/verify-auth").then((res) => res.data);
+
 
 // ─── Cerrar sesión en el backend ────────────────────────────
 export const logoutService = () =>
   api.post("/auth/logout").then((res) => res.data);
+
+
+
+
+
+
+
+
+
+
+
+
+// ─── Registro ───────────────────────────────────────────────
+export const registerService = (userData) =>
+  api.post("/auth/register", userData).then((res) => res.data);
+
 
 // ─── Solicitar recuperación de contraseña ───────────────────
 export const recoverPasswordService = (email) =>

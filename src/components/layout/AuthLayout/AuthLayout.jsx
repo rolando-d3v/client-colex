@@ -6,7 +6,11 @@ import { Outlet } from "react-router";
  */
 const AuthLayout = () => {
   return (
-    <div>
+    <div
+      style={{
+        padding: "10px",
+      }}
+    >
       <Outlet />
     </div>
   );

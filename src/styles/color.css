@@ -1,0 +1,21 @@
+:root {
+  /* Fondos y Superficies Principales */
+  --color-primario-oscuro: #1a1a1a;    /* Sidebar y fondo de detalles */
+  --color-fondo-general: #f9f9f9;      /* Fondo claro de la aplicación */
+  --color-blanco: #ffffff;             /* Contenedores de chat y buscador */
+
+  /* Colores de Acento (Púrpura) */
+  --color-secundario01: #a294f9;       /* Botones principales y burbujas de usuario */
+  --color-secundario02: #cdc1ff;       /* Card "Want to teach?" (claro) */
+  --color-secundario03: #6e54b5;       /* Hover de botones o texto de acento */
+  --color-secundario04: #f1effe;       /* Fondo muy suave para elementos activos */
+
+  /* Escala de Grises y Bordes */
+  --color-borde: #e0e0e0;              /* Separadores y bordes de inputs */
+  --color-texto-principal: #333333;    /* Nombres y cuerpo de mensajes */
+  --color-texto-secundario: #888888;   /* Fechas, placeholders y subtítulos */
+
+  /* Funcionales */
+  --color-notificacion: #7b61ff;       /* Badge de mensajes pendientes (púrpura intenso) */
+  --color-online: #4caf50;             /* Indicador de estado en línea (verde) */
+}

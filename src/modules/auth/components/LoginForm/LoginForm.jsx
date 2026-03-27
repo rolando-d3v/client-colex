@@ -3,14 +3,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useLogin } from "../../hooks/useLogin";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./LoginForm.module.css";
-
+import * as FaIcons from "react-icons/fa";
+import logo from "../../../../assets/logos/defensa.png";
+// import { ToastError, ToastSuccess } from "../../../tools/Toasting";
+// import { useSelector, useDispatch } from "react-redux";
+// import { useMutation, useQueryClient } from "@tanstack/react-query";
 const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "El correo es requerido")
-    .email("Ingresa un correo válido"),
+  codigo: z.string().min(1, "El código es requerido"),
   password: z
     .string()
     .min(1, "La contraseña es requerida")
@@ -18,94 +19,152 @@ const loginSchema = z.object({
 });
 
 const LoginForm = () => {
+  const [eyePass, setEyePass] = useState(false);
   const { handleLogin, isLoading } = useLogin();
   const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(loginSchema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { codigo: "", password: "" },
   });
 
   const onSubmit = (data) => {
+    console.log(data);
     handleLogin(data);
   };
 
+  // MOSTRAR UN ERROR PERZONALIZADO
+  const errorHookForm = (err) => {
+    if (err) {
+      return <span className={css.error_alert}>{err}</span>;
+    }
+  };
+
+  //efecto de input label hacia arriba
+  useEffect(() => {
+    const inputs = document.querySelectorAll(".input");
+
+    function addcl() {
+      let parent = this.parentNode.parentNode;
+      parent.classList.add(styles.focus);
+    }
+    function remcl() {
+      let parent = this.parentNode.parentNode;
+      if (this.value === "") {
+        parent.classList.remove(styles.focus);
+      }
+    }
+
+    inputs.forEach((input) => {
+      input?.addEventListener("focus", addcl);
+      input?.addEventListener("blur", remcl);
+    });
+
+    //limitar numero en input de password
+    var input = document.getElementById("codigo");
+    input?.addEventListener("input", function () {
+      if (this.value.length > 15) this.value = this.value.slice(0, 15);
+    });
+  }, []);
+
+  //mostara el eye con el password
+  const clickEyePassword = () => {
+    setEyePass(!eyePass);
+  };
+
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-      {/* ── Email ──────────────────────────────────────── */}
-      <div className={styles.group}>
-        <label className={styles.label} htmlFor="email">
-          Correo electrónico
-        </label>
-        <div className={`${styles.inputWrapper} ${errors.email ? styles.inputWrapperError : ""}`}>
-          <FiMail className={styles.icon} />
-          <input
-            id="email"
-            type="email"
-            className={styles.input}
-            placeholder="correo@colegio.edu.pe"
-            autoComplete="email"
-            {...register("email")}
-          />
+    <form className={styles.form_login} onSubmit={handleSubmit(onSubmit)}>
+      <div className={styles.header}>
+        <div className={styles.content_logo}>
+          <div>
+            <img
+              className={styles.logo}
+              src={logo}
+              alt="logo_die"
+              style={{ width: 170 }}
+            />
+          </div>
         </div>
-        {errors.email && (
-          <span className={styles.error}>{errors.email.message}</span>
-        )}
+        <p className={styles.sub_title}> Sistema de Gestión Documental</p>
+        <p className={styles.sub_title} style={{ marginBottom: 5 }}>
+          "Moche"
+        </p>
       </div>
+
+      <section className={`${styles.section_input}`}>
+        <span className={styles.icon_login}>
+          <FaIcons.FaUser className="" />
+        </span>
+        <div className="div_input">
+          <label className={`${styles.label_form} `}>Código</label>
+          <input
+            autoComplete="off"
+            className={`${styles.input} ${"input"}  ${styles.input_numero} `}
+            type="text"
+            name="codigo"
+            id="codigo"
+            {...register("codigo")}
+          />
+          {errorHookForm(errors.codigo?.message)}
+        </div>
+      </section>
 
       {/* ── Password ───────────────────────────────────── */}
-      <div className={styles.group}>
-        <label className={styles.label} htmlFor="password">
-          Contraseña
-        </label>
-        <div className={`${styles.inputWrapper} ${errors.password ? styles.inputWrapperError : ""}`}>
-          <FiLock className={styles.icon} />
+      <section className={`${styles.section_input}`}>
+        <span className={styles.icon_login}>
+          <FaIcons.FaKey className="" />
+        </span>
+        <div className="control-input">
+          <label htmlFor="password" className={`${styles.label_form} `}>
+            Contraseña
+          </label>
           <input
+            autoComplete="off"
+            type={eyePass ? "text" : "password"}
+            name="password"
             id="password"
-            type={showPassword ? "text" : "password"}
-            className={styles.input}
-            placeholder="••••••••"
-            autoComplete="current-password"
+            className={`${styles.input} ${"input"} `}
             {...register("password")}
           />
-          <button
-            type="button"
-            className={styles.togglePassword}
-            onClick={() => setShowPassword(!showPassword)}
-            tabIndex={-1}
-          >
-            {showPassword ? <FiEyeOff /> : <FiEye />}
-          </button>
+          {watch("password") && (
+            <span
+              className={styles.eye_pass}
+              onClick={() => clickEyePassword()}
+            >
+              {eyePass ? <FaIcons.FaEye /> : <FaIcons.FaEyeSlash />}
+            </span>
+          )}
+
+          {errorHookForm(errors.password?.message)}
         </div>
-        {errors.password && (
-          <span className={styles.error}>{errors.password.message}</span>
+      </section>
+
+      {/* ── Submit ─────────────────────────────────────── */}
+      <div className={styles.wrapper_button}>
+        {watch("codigo") && watch("password") ? (
+          <button
+            type="submit"
+            className={`${styles.__login}  ${styles.__checked} `}
+          >
+            Iniciar Sesión
+          </button>
+        ) : (
+          <button className={styles.__login} disabled>
+            Iniciar Sesión
+          </button>
         )}
       </div>
-
       {/* ── Olvidaste tu contraseña ─────────────────────── */}
       <div className={styles.options}>
         <a href="/recover" className={styles.link}>
           ¿Olvidaste tu contraseña?
         </a>
       </div>
-
-      {/* ── Submit ─────────────────────────────────────── */}
-      <button
-        type="submit"
-        className={styles.submit}
-        disabled={isLoading}
-      >
-        {isLoading ? (
-          <span className={styles.spinner} />
-        ) : (
-          "Iniciar sesión"
-        )}
-      </button>
-
       {/* ── Link a Registro ──────────────────────────── */}
       <div className={styles.footerLink}>
         <span>¿No tienes cuenta?</span>

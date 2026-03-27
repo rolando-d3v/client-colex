@@ -19,6 +19,10 @@ export const AuthInitializer = ({ children }) => {
     staleTime: 1000 * 60 * 10,
   });
 
+
+  console.log(data);
+
+
   useEffect(() => {
     if (isSuccess && data) {
       dispatch(setCredentials(data));

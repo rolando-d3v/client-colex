@@ -1,66 +1,131 @@
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes animationTextColor {
+  0% {
+    filter: brightness(0) invert(1);
+  }
+  11% {
+    filter: none;
+  }
+  33% {
+    filter: none;
+  }
+  55% {
+    filter: brightness(0) invert(1);
+  }
+}
+
+@keyframes pulseBg {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.25;
+  }
+}
+
 /* ─── Login Page ─────────────────────────────────────────────── */
+
 .page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
+  border: 9px solid black;
+  border-radius: 25px;
+  min-height: calc(100vh - 20px);
+  display: grid;
+  grid-template-columns: minmax(390px, 390px) auto;
   overflow: hidden;
-  background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #24243e 100%);
-}
 
-.card {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 420px;
-  padding: 2.5rem 2rem;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
+  @media screen and (max-width: 500px) {
+    grid-template-columns: minmax(100%, 360px) auto;
+  }
 
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+  .content_form {
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    border: 2px solid #2f2f2f86;
+    padding: 30px;
+    margin: 30px 0 30px 35px;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-.logo {
-  margin-bottom: 0.75rem;
-}
+    @media screen and (max-width: 500px) {
+      background-color: var(--dark);
+      border-radius: 0px;
+      margin: 0px;
+      opacity: 0.9;
+    }
+  }
 
-.logoIcon {
-  font-size: 3rem;
-  display: inline-block;
-  animation: float 3s ease-in-out infinite;
-}
+  .div_text {
+    z-index: 22;
+    position: fixed;
+    top: 46px;
+    right: 100px;
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
+    .content_text {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-align: right;
+      font-size: 4.8rem;
+      line-height: 4.8rem;
+      letter-spacing: -0.04rem;
+      color: #fff;
+      filter: drop-shadow(2px 2px 1px #000);
 
-.title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.25rem;
-}
+      @media screen and (max-width: 1200px) {
+        font-size: 3.2rem;
+        line-height: 3.2rem;
+      }
 
-.subtitle {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
-}
+      @media screen and (max-width: 1024px) {
+        font-size: 2.4rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.2rem;
+      }
 
-.footer {
-  text-align: center;
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.3);
+      .x_span {
+        filter: brightness(0) invert(1);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: animationTextColor 10s ease-in-out infinite;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .x_span:nth-child(1) {
+        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+      }
+      .x_span:nth-child(2) {
+        background-image: linear-gradient(90deg, #000cfa, #00ff95);
+        animation-delay: 3.33s;
+      }
+      .x_span:nth-child(3) {
+        background-image: linear-gradient(90deg, #0458ff, #f60818);
+        animation-delay: 6.66s;
+      }
+    }
+  }
+
+  .video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 /* ─── Background Circles ────────────────────────────────────── */
@@ -103,11 +168,6 @@
   top: 50%;
   left: 60%;
   animation: pulseBg 6s ease-in-out infinite 1s;
-}
-
-@keyframes pulseBg {
-  0%, 100% { transform: scale(1); opacity: 0.4; }
-  50% { transform: scale(1.15); opacity: 0.25; }
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
