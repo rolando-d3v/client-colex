@@ -1,10 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../../modules/auth/hooks/useAuth";
-import { toggleDarkMode, openToggleSidebar } from "../../../Redux/settingAppSlice";
+import {
+  toggleDarkMode,
+  openToggleSidebar,
+} from "../../../Redux/settingAppSlice";
 import { FiMenu, FiSun, FiMoon, FiBell, FiUser } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import styles from "./Topbar.module.css";
+import ToggleTheme from "../toggleTheme/ToggleTheme";
 
 const Topbar = () => {
   const dispatch = useDispatch();
@@ -39,6 +43,7 @@ const Topbar = () => {
 
       {/* ── Acciones ───────────────────────────────────── */}
       <div className={styles.actions}>
+        <ToggleTheme />
         <button
           className={styles.iconBtn}
           onClick={() => dispatch(toggleDarkMode())}
@@ -60,9 +65,7 @@ const Topbar = () => {
             <div className={styles.avatar}>
               {user?.nombre?.[0]?.toUpperCase() || "U"}
             </div>
-            <span className={styles.userName}>
-              {user?.nombre || "Usuario"}
-            </span>
+            <span className={styles.userName}>{user?.nombre || "Usuario"}</span>
           </button>
 
           {dropdownOpen && (
