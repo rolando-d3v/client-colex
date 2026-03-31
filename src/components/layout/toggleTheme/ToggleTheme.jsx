@@ -61,10 +61,16 @@ export default function ToggleTheme() {
       <div>
            <button
                   className={styles.iconBtn}
-                  onClick={() => dispatch(toggleDarkMode())}
-                  title={isDarkMode ? "Modo claro" : "Modo oscuro"}
+                  // onClick={() => dispatch(toggleDarkMode())}
+                  // title={isDarkMode ? "Modo claro" : "Modo oscuro"}
                 >
-                  {isDarkMode ? <FiSun /> : <FiMoon />}
+                  
+                  
+                  
+                  
+                  {/* {isDarkMode ? <FiSun /> : <FiMoon />} */}
+                
+                
                 </button>
       </div>
     </div>
