@@ -22,6 +22,142 @@ const ComingSoon = ({ title }) => (
     <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
       Esta sección está en desarrollo...
     </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
+    <h2>{title}</h2>
+    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
+      Esta sección está en desarrollo...
+    </p>
   </div>
 );
 

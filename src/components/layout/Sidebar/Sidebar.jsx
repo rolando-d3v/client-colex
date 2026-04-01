@@ -129,21 +129,7 @@ const Sidebar = () => {
 
       {/* ── Footer (user + logout) ────────────────────── */}
       <div className={styles.footer}>
-        {sidebarOpen && (
-          <div className={styles.user}>
-            <div className={styles.avatar}>
-              {user?.nombre?.[0]?.toUpperCase() || "U"}
-            </div>
-            <div className={styles.userInfo}>
-              <span className={styles.userName}>
-                {user?.nombre} {user?.apellido}
-              </span>
-              <span className={styles.userRole}>
-                {roles[0]?.replace("_", " ")}
-              </span>
-            </div>
-          </div>
-        )}
+        
         <button
           className={styles.logoutBtn}
           onClick={handleLogout}

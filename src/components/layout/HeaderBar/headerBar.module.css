@@ -1,10 +1,15 @@
 /* ═══════════════════════════════════════════════════════════════
    TOPBAR
    ═══════════════════════════════════════════════════════════════ */
-.topbar {
-  position: fixed;
+.headerBar {
+  position: sticky;
   top: 0;
-  right: 0;
+  width: 100%;
+  /* right: 0; */
+
+  display: flex;
+  justify-content: space-between;
+  /* left: 0; */
   left: var(--sidebar-width, 260px);
   height: var(--topbar-height, 60px);
   background: var(--topbar-bg, var(--bg, #fff));

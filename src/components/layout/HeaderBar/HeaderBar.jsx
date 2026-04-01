@@ -4,13 +4,13 @@ import {
   toggleDarkMode,
   openToggleSidebar,
 } from "../../../Redux/settingAppSlice";
-import { FiMenu, FiSun, FiMoon, FiBell, FiUser } from "react-icons/fi";
+import { FiMenu, FiBell, FiUser } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
-import styles from "./Topbar.module.css";
+import styles from "./headerBar.module.css";
 import ToggleTheme from "../toggleTheme/ToggleTheme";
 
-const Topbar = () => {
+const HeaderBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user, activeRole, handleLogout } = useAuth();
@@ -30,7 +30,7 @@ const Topbar = () => {
   }, []);
 
   return (
-    <header className={styles.topbar}>
+    <header className={styles.headerBar}>
       {/* ── Hamburger (mobile) ─────────────────────────── */}
       <button
         className={styles.menuBtn}
@@ -39,18 +39,16 @@ const Topbar = () => {
         <FiMenu />
       </button>
 
-      <div className={styles.spacer} />
+    
+
+      <div>
+        <h6>peru</h6>
+      </div>
 
       {/* ── Acciones ───────────────────────────────────── */}
       <div className={styles.actions}>
         <ToggleTheme />
-        <button
-          className={styles.iconBtn}
-          onClick={() => dispatch(toggleDarkMode())}
-          title={isDarkMode ? "Modo claro" : "Modo oscuro"}
-        >
-          {isDarkMode ? <FiSun /> : <FiMoon />}
-        </button>
+       
 
         <button className={styles.iconBtn} title="Notificaciones">
           <FiBell />
@@ -103,4 +101,4 @@ const Topbar = () => {
   );
 };
 
-export default Topbar;
+export default HeaderBar;
