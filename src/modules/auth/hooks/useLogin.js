@@ -22,7 +22,9 @@ export const useLogin = () => {
 
       // Redirigir según el primer rol del usuario
       const primaryRole = data.roles?.[0];
+      console.log(primaryRole);
       const redirectPath = DEFAULT_ROUTES[primaryRole] || "/dashboard";
+      console.log(redirectPath);
 
       toast.success(`¡Bienvenido, ${data.user?.nombre || ""}!`);
       navigate(redirectPath, { replace: true });
