@@ -88,7 +88,7 @@ const Sidebar = () => {
       <div className={styles.header}>
         <div className={styles.brand}>
           <span className={styles.logo}>🎓</span>
-          {sidebarOpen && <span className={styles.brandText}>Colex</span>}
+          {sidebarOpen && <span className={styles.brandText}>Santa Rosa</span>}
         </div>
         <button className={styles.toggle} onClick={toggleSidebar}>
           <FiChevronLeft
