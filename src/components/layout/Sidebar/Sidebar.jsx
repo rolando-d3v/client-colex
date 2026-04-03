@@ -108,6 +108,8 @@ const Sidebar = () => {
         </div>
       )}
 
+      <h5>peru</h5>
+
       {/* ── Nav items ──────────────────────────────────── */}
       <nav className={styles.nav}>
         {navItems.map((item) => (

@@ -51,9 +51,7 @@ const authSlice = createSlice({
 
     // Cambiar rol activo (para usuarios con múltiples roles)
     setActiveRole: (state, action) => {
-      if (state.roles.includes(action.payload)) {
-        state.activeRole = action.payload;
-      }
+      state.activeRole = action.payload;
     },
 
     // Seleccionar colegio (para super_admin que gestiona múltiples)

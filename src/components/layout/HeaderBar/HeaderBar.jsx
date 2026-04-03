@@ -1,10 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth } from "../../../modules/auth/hooks/useAuth";
-import {
-  toggleDarkMode,
-  openToggleSidebar,
-} from "../../../Redux/settingAppSlice";
-import { FiMenu, FiBell, FiUser } from "react-icons/fi";
+import { openToggleSidebar } from "../../../Redux/settingAppSlice";
+import { FiMenu, FiBell, FiUser, FiChevronUp, FiShield } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import styles from "./headerBar.module.css";
@@ -13,21 +10,33 @@ import ToggleTheme from "../toggleTheme/ToggleTheme";
 const HeaderBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user, activeRole, handleLogout } = useAuth();
-  const isDarkMode = useSelector((state) => state.SETTING_APP.isDarkMode);
+  const { user, roles, activeRole, handleLogout, handleSetActiveRole } =
+    useAuth();
+
   const sidebarOpen = useSelector((state) => state.SETTING_APP.estado_sidebar);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
   const dropdownRef = useRef(null);
+  const roleDropdownRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false);
       }
+      if (
+        roleDropdownRef.current &&
+        !roleDropdownRef.current.contains(e.target)
+      ) {
+        setRoleDropdownOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  console.log(selectedRole);
 
   return (
     <header className={styles.headerBar}>
@@ -39,16 +48,47 @@ const HeaderBar = () => {
         <FiMenu />
       </button>
 
-    
+      {/* ── Role Selector ──────────────────────────────── */}
+      <div className={styles.roleSelector} ref={roleDropdownRef}>
+        <button
+          className={`${styles.roleTrigger} ${roleDropdownOpen ? styles.roleTriggerOpen : ""}`}
+          onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
+        >
+          <FiShield className={styles.roleIcon} />
+          <span className={styles.roleTriggerLabel}>
+            {selectedRole.nombre
+              ? roles.find((r) => r.id === selectedRole.id)?.nombre
+              : activeRole?.nombre}
+          </span>
+          <FiChevronUp
+            className={`${styles.roleChevron} ${roleDropdownOpen ? styles.roleChevronOpen : ""}`}
+          />
+        </button>
 
-      <div>
-        <h6>peru</h6>
+        {roleDropdownOpen && (
+          <div className={styles.roleDropdown}>
+            {roles.map((role) => (
+              <button
+                key={role.id}
+                className={`${styles.roleOption} ${
+                  selectedRole?.id === role.id ? styles.roleOptionActive : ""
+                }`}
+                onClick={() => {
+                  setSelectedRole(role);
+                  setRoleDropdownOpen(false);
+                  handleSetActiveRole(role)
+                }}
+              >
+                {role.nombre}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ── Acciones ───────────────────────────────────── */}
       <div className={styles.actions}>
         <ToggleTheme />
-       
 
         <button className={styles.iconBtn} title="Notificaciones">
           <FiBell />

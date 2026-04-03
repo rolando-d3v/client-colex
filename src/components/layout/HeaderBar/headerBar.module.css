@@ -202,6 +202,123 @@
   background: rgba(255, 107, 107, 0.08);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   ROLE SELECTOR
+   ═══════════════════════════════════════════════════════════════ */
+.roleSelector {
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+.roleTrigger {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.9rem;
+  background: #1a1d2e;
+  color: #e2e4ec;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  min-width: 190px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roleTrigger:hover {
+  background: #22253a;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.roleTriggerOpen {
+  background: #22253a;
+  border-color: rgba(255, 255, 255, 0.16);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
+.roleIcon {
+  font-size: 1.1rem;
+  color: #a5b4fc;
+  flex-shrink: 0;
+}
+
+.roleTriggerLabel {
+  flex: 1;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roleChevron {
+  font-size: 1rem;
+  color: #9ca3af;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: rotate(180deg);
+  flex-shrink: 0;
+}
+
+.roleChevronOpen {
+  transform: rotate(0deg);
+}
+
+.roleDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #1a1d2e;
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0.35rem 0;
+  z-index: 200;
+  animation: roleDropIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes roleDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.roleOption {
+  width: 100%;
+  display: block;
+  padding: 0.55rem 1rem 0.55rem 2.7rem;
+  background: none;
+  border: none;
+  color: #c9cdd6;
+  font-family: inherit;
+  font-size: 0.86rem;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.roleOption:hover {
+  background: rgba(165, 180, 252, 0.08);
+  color: #fff;
+}
+
+.roleOptionActive {
+  color: #a5b4fc;
+  font-weight: 500;
+  background: rgba(165, 180, 252, 0.06);
+}
+
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .topbar {
