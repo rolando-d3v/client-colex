@@ -19,6 +19,7 @@ export const useLogin = () => {
     onSuccess: (data) => {
       // Guardar datos del usuario en Redux
       dispatch(setCredentials(data));
+      console.log(data);
 
       // Redirigir según el primer rol del usuario
       const primaryRole = data.roles?.[0];
