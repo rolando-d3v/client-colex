@@ -1,6 +1,6 @@
 /* ─── Main Layout ────────────────────────────────────────────── */
 :root {
-  --sidebar-width: 260px;
+  --sidebar-width: 280px;
   --sidebar-collapsed-width: 72px;
   --topbar-height: 60px;
 }

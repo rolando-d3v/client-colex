@@ -16,6 +16,7 @@ import {
   FiBookOpen,
 } from "react-icons/fi";
 import { openToggleSidebar } from "../../../Redux/settingAppSlice";
+import logo from "../../../assets/logos/santa_rosa-removebg-preview.png";
 import styles from "./Sidebar.module.css";
 
 /**
@@ -27,7 +28,11 @@ const getNavItems = (roles) => {
   items.push({ label: "Dashboard", path: "/dashboard", icon: <FiHome /> });
 
   if (roles.includes(ROLES.SUPER_ADMIN)) {
-    items.push({ label: "Colegios", path: "/admin/colegios", icon: <FiGrid /> });
+    items.push({
+      label: "Colegios",
+      path: "/admin/colegios",
+      icon: <FiGrid />,
+    });
   }
 
   if (
@@ -46,7 +51,11 @@ const getNavItems = (roles) => {
   }
 
   if (!roles.includes(ROLES.PADRE) || roles.length > 1) {
-    items.push({ label: "Académico", path: "/academico/cursos", icon: <FiBook /> });
+    items.push({
+      label: "Académico",
+      path: "/academico/cursos",
+      icon: <FiBook />,
+    });
   }
 
   if (
@@ -57,7 +66,11 @@ const getNavItems = (roles) => {
     items.push({ label: "Pagos", path: "/pagos", icon: <FiDollarSign /> });
   }
 
-  items.push({ label: "Mensajes", path: "/comunicaciones/mensajes", icon: <FiMail /> });
+  items.push({
+    label: "Mensajes",
+    path: "/comunicaciones/mensajes",
+    icon: <FiMail />,
+  });
 
   if (
     roles.includes(ROLES.SUPER_ADMIN) ||
@@ -72,9 +85,7 @@ const getNavItems = (roles) => {
 const Sidebar = () => {
   const dispatch = useDispatch();
   const { roles, user, handleLogout, colegio } = useAuth();
-  const sidebarOpen = useSelector(
-    (state) => state.SETTING_APP.estado_sidebar
-  );
+  const sidebarOpen = useSelector((state) => state.SETTING_APP.estado_sidebar);
 
   const navItems = getNavItems(roles);
 
@@ -83,14 +94,15 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className={`${styles.sidebar} ${sidebarOpen ? "" : styles.sidebarCollapsed}`}>
+    <aside
+      className={`${styles.sidebar} ${sidebarOpen ? "" : styles.sidebarCollapsed}`}
+    >
       {/* ── Header ─────────────────────────────────────── */}
       <div className={styles.header}>
         <div className={styles.brand}>
-          <span className={styles.logo}>🎓</span>
-          {sidebarOpen && <span className={styles.brandText}>Santa Rosa</span>}
+          <img src={logo} alt="logo" className={styles.logo} />
         </div>
-        <button className={styles.toggle} onClick={toggleSidebar}>
+        <button className={`${styles.toggle} ${sidebarOpen && styles.toggle_open}`} onClick={toggleSidebar}>
           <FiChevronLeft
             style={{
               transform: sidebarOpen ? "rotate(0)" : "rotate(180deg)",
@@ -98,7 +110,8 @@ const Sidebar = () => {
             }}
           />
         </button>
-      </div>
+      </div>{" "}
+
 
       {/* ── Colegio actual ─────────────────────────────── */}
       {colegio && sidebarOpen && (
@@ -107,9 +120,6 @@ const Sidebar = () => {
           <span>{colegio.nombre}</span>
         </div>
       )}
-
-      <h5>peru</h5>
-
       {/* ── Nav items ──────────────────────────────────── */}
       <nav className={styles.nav}>
         {navItems.map((item) => (
@@ -128,10 +138,8 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </nav>
-
       {/* ── Footer (user + logout) ────────────────────── */}
       <div className={styles.footer}>
-        
         <button
           className={styles.logoutBtn}
           onClick={handleLogout}
