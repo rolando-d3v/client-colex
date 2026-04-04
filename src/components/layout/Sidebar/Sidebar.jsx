@@ -93,6 +93,9 @@ const Sidebar = () => {
     dispatch(openToggleSidebar(!sidebarOpen));
   };
 
+  console.log(colegio);
+  
+
   return (
     <aside
       className={`${styles.sidebar} ${sidebarOpen ? "" : styles.sidebarCollapsed}`}
@@ -100,7 +103,7 @@ const Sidebar = () => {
       {/* ── Header ─────────────────────────────────────── */}
       <div className={styles.header}>
         <div className={styles.brand}>
-          <img src={logo} alt="logo" className={styles.logo} />
+          <img src={colegio?.logo_url} alt="logo" className={styles.logo} />
         </div>
         <button className={`${styles.toggle} ${sidebarOpen && styles.toggle_open}`} onClick={toggleSidebar}>
           <FiChevronLeft

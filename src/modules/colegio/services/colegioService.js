@@ -1,3 +1,9 @@
+import api from "../../../config/axios";
+
 // ─── Obtener datos del colegio ─────────────────────
-export const getColegioService = () =>
-  api.get("/colegio/data-colegio").then((res) => res.data);
+export const getColegioService = (host) =>
+  api.get(`/colegio/data-colegio?dominio=${host}`).then((res) => res.data);
+
+
+
+// /colegio/data-colegio

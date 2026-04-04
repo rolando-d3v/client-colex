@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import styles from "./LoginForm.module.css";
 import * as FaIcons from "react-icons/fa";
 import logo from "../../../../assets/logos/defensa.png";
+import { useAuth } from "../../hooks/useAuth";
 // import { ToastError, ToastSuccess } from "../../../tools/Toasting";
 // import { useSelector, useDispatch } from "react-redux";
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -22,6 +23,7 @@ const LoginForm = () => {
   const [eyePass, setEyePass] = useState(false);
   const { handleLogin, isLoading } = useLogin();
   const [showPassword, setShowPassword] = useState(false);
+  const { colegio } = useAuth();
 
   const {
     register,
@@ -84,16 +86,13 @@ const LoginForm = () => {
           <div>
             <img
               className={styles.logo}
-              src={logo}
+              src={colegio?.logo_url}
               alt="logo_die"
               style={{ width: 170 }}
             />
           </div>
         </div>
-        <p className={styles.sub_title}> Sistema de Gestión Documental</p>
-        <p className={styles.sub_title} style={{ marginBottom: 5 }}>
-          "Moche"
-        </p>
+        <p className={styles.sub_title}> {colegio?.nombre}</p>
       </div>
 
       <section className={`${styles.section_input}`}>
