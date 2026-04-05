@@ -119,10 +119,13 @@ const Sidebar = () => {
       {/* ── Colegio actual ─────────────────────────────── */}
       {colegio && sidebarOpen && (
         <div className={styles.colegio}>
-          <FiBookOpen />
           <span>{colegio.nombre}</span>
         </div>
       )}
+
+
+
+
       {/* ── Nav items ──────────────────────────────────── */}
       <nav className={styles.nav}>
         {navItems.map((item) => (
@@ -141,6 +144,12 @@ const Sidebar = () => {
           </NavLink>
         ))}
       </nav>
+
+
+
+
+
+      
       {/* ── Footer (user + logout) ────────────────────── */}
       <div className={styles.footer}>
         <button
