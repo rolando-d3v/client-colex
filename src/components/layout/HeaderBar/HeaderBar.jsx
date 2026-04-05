@@ -1,19 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useAuth } from "../../../modules/auth/hooks/useAuth";
-import { openToggleSidebar } from "../../../Redux/settingAppSlice";
-import { FiMenu, FiBell, FiUser, FiChevronUp, FiShield } from "react-icons/fi";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
-import styles from "./headerBar.module.css";
+import { useAuth } from "../../../modules/auth/hooks/useAuth";
+import { useLayout } from "../../../hooks/useLayout";
 import ToggleTheme from "../toggleTheme/ToggleTheme";
+import styles from "./headerBar.module.css";
+import { FiMenu, FiBell, FiUser, FiChevronUp, FiShield } from "react-icons/fi";
 
 const HeaderBar = () => {
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const { user, roles, activeRole, handleLogout, handleSetActiveRole } =
     useAuth();
-
-  const sidebarOpen = useSelector((state) => state.SETTING_APP.estado_sidebar);
+  const { estado_sidebar, handleOpenToggleSidebar } = useLayout();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState("");
@@ -43,7 +41,7 @@ const HeaderBar = () => {
       {/* ── Hamburger (mobile) ─────────────────────────── */}
       <button
         className={styles.menuBtn}
-        onClick={() => dispatch(openToggleSidebar(!sidebarOpen))}
+        onClick={() => handleOpenToggleSidebar(!estado_sidebar)}
       >
         <FiMenu />
       </button>
@@ -76,7 +74,7 @@ const HeaderBar = () => {
                 onClick={() => {
                   setSelectedRole(role);
                   setRoleDropdownOpen(false);
-                  handleSetActiveRole(role)
+                  handleSetActiveRole(role);
                 }}
               >
                 {role.nombre}
@@ -103,7 +101,7 @@ const HeaderBar = () => {
             <div className={styles.avatar}>
               {user?.nombre?.[0]?.toUpperCase() || "U"}
             </div>
-            <span className={styles.userName}>{user?.nombre || "Usuario"}</span>
+            <span className={styles.userName}>{user?.codigo_usuario || "Usuario"}</span>
           </button>
 
           {dropdownOpen && (
@@ -112,7 +110,7 @@ const HeaderBar = () => {
                 <strong>
                   {user?.nombre} {user?.apellido}
                 </strong>
-                <small>{activeRole?.replace("_", " ")}</small>
+                <small>{activeRole?.nombre}</small>
               </div>
               <hr className={styles.dropdownDivider} />
               <button

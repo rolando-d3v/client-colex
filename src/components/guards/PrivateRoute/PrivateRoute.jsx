@@ -17,9 +17,13 @@ const PrivateRoute = ({ allowedRoles }) => {
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
+  console.log(allowedRoles);
+  console.log(roles);
+
+  const roleId = roles.map((role) => role.id);
 
   if (allowedRoles && allowedRoles.length > 0) {
-    const hasPermission = allowedRoles.some((role) => roles.includes(role));
+    const hasPermission = allowedRoles.some((role) => roleId.includes(role));
     if (!hasPermission) {
       return <Navigate to="/no-autorizado" replace />;
     }

@@ -1,6 +1,6 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getColegioService } from "../services/colegioService";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setColegio } from "../../../Redux/authSlice";
 
 import { useEffect } from "react";
@@ -8,6 +8,7 @@ import { useEffect } from "react";
 export const useColegio = (host) => {
   const dispatch = useDispatch();
 
+  //?? obtiene datos del colegio en login con el host o dominio
   const query_colegio = useQuery({
     queryKey: ["query_colegio", host],
     queryFn: () => getColegioService(host),

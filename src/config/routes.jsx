@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import { ROLES } from "./constants";
 
 // ─── Guards ─────────────────────────────────────────────────
 import PrivateRoute from "../components/guards/PrivateRoute/PrivateRoute";
@@ -22,144 +21,15 @@ const ComingSoon = ({ title }) => (
     <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
       Esta sección está en desarrollo...
     </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
-    <h2>{title}</h2>
-    <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
-      Esta sección está en desarrollo...
-    </p>
+   
     <h2>{title}</h2>
     <p style={{ color: "var(--text)", marginTop: "0.5rem" }}>
       Esta sección está en desarrollo...
     </p>
   </div>
 );
+
+
 
 // ─── Router ─────────────────────────────────────────────────
 export const router = createBrowserRouter([
@@ -213,13 +83,13 @@ export const router = createBrowserRouter([
   //  RUTAS PRIVADAS - Solo SUPER_ADMIN
   // ════════════════════════════════════════════════════════════
   {
-    element: <PrivateRoute allowedRoles={[ROLES.SUPER_ADMIN]} />,
+    element: <PrivateRoute allowedRoles={[1]} />,
     children: [
       {
         element: <MainLayout />,
         children: [
           {
-            path: "/admin/colegios",
+            path: "/super-admin/colegios",
             element: <ComingSoon title="Gestión de Colegios" />,
           },
         ],
@@ -228,45 +98,60 @@ export const router = createBrowserRouter([
   },
 
   // ════════════════════════════════════════════════════════════
-  //  RUTAS PRIVADAS - SUPER_ADMIN + ADMIN_COLEGIO
+  //  RUTAS PRIVADAS  ADMIN_COLEGIO
   // ════════════════════════════════════════════════════════════
   {
-    element: (
-      <PrivateRoute
-        allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN_COLEGIO]}
-      />
-    ),
+    element: <PrivateRoute allowedRoles={[2]} />,
     children: [
       {
         element: <MainLayout />,
         children: [
-          { path: "/docentes", element: <ComingSoon title="Docentes" /> },
           {
-            path: "/docentes/horario",
+            path: "/admin-colegio/dashboard",
+            element: <ComingSoon title="Dashboard" />,
+          },
+          {
+            path: "/admin-colegio/cursos",
+            element: <ComingSoon title="Cursos" />,
+          },
+          {
+            path: "/admin-colegio/docentes",
+            element: <ComingSoon title="Docentes" />,
+          },
+          {
+            path: "/admin-colegio/alumnos",
+            element: <ComingSoon title="Alumnos" />,
+          },
+          {
+            path: "/admin-colegio/horario",
             element: <ComingSoon title="Horarios" />,
           },
-          { path: "/usuarios", element: <ComingSoon title="Usuarios" /> },
+          {
+            path: "/admin-colegio/usuarios",
+            element: <ComingSoon title="Usuarios" />,
+          },
         ],
       },
     ],
   },
 
   // ════════════════════════════════════════════════════════════
-  //  RUTAS PRIVADAS - SUPER_ADMIN + ADMIN_COLEGIO + DOCENTE
+  //  RUTAS PRIVADAS  DOCENTE
   // ════════════════════════════════════════════════════════════
   {
-    element: (
-      <PrivateRoute
-        allowedRoles={[ROLES.SUPER_ADMIN, ROLES.ADMIN_COLEGIO, ROLES.DOCENTE]}
-      />
-    ),
+    element: <PrivateRoute allowedRoles={[3]} />,
     children: [
       {
         element: <MainLayout />,
         children: [
-          { path: "/alumnos", element: <ComingSoon title="Alumnos" /> },
           {
-            path: "/alumnos/:id",
+            path: "/docente/dashboard",
+            element: <ComingSoon title="Dashboard" />,
+          },
+          { path: "/docente/cursos", element: <ComingSoon title="Cursos" /> },
+          { path: "/docente/alumnos", element: <ComingSoon title="Alumnos" /> },
+          {
+            path: "/docente/alumnos/:id",
             element: <ComingSoon title="Detalle Alumno" />,
           },
           {
@@ -279,19 +164,10 @@ export const router = createBrowserRouter([
   },
 
   // ════════════════════════════════════════════════════════════
-  //  RUTAS PRIVADAS - Académico (todos menos padre)
+  //  RUTAS PRIVADAS - Alumno
   // ════════════════════════════════════════════════════════════
   {
-    element: (
-      <PrivateRoute
-        allowedRoles={[
-          ROLES.SUPER_ADMIN,
-          ROLES.ADMIN_COLEGIO,
-          ROLES.DOCENTE,
-          ROLES.ALUMNO,
-        ]}
-      />
-    ),
+    element: <PrivateRoute allowedRoles={[4]} />,
     children: [
       {
         element: <MainLayout />,
@@ -326,16 +202,12 @@ export const router = createBrowserRouter([
   },
 
   // ════════════════════════════════════════════════════════════
-  //  RUTAS PRIVADAS - Pagos (admin + padre)
+  //  RUTAS PRIVADAS - padre
   // ════════════════════════════════════════════════════════════
   {
     element: (
       <PrivateRoute
-        allowedRoles={[
-          ROLES.SUPER_ADMIN,
-          ROLES.ADMIN_COLEGIO,
-          ROLES.PADRE,
-        ]}
+        allowedRoles={[5]}
       />
     ),
     children: [

@@ -18,7 +18,7 @@ export const useAuth = () => {
   const queryClient = useQueryClient();
 
   const { user, roles, activeRole, colegio, isAuthenticated, error } =
-    useSelector((state) => state.auth);
+    useSelector((state) => state.Auth);
 
   // ─── Logout con mutation (limpia cookie en backend) ─────
   const logoutMutation = useMutation({

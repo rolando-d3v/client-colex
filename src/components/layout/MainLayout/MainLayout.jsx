@@ -3,13 +3,14 @@ import Sidebar from "../Sidebar/Sidebar";
 import HeaderBar from "../HeaderBar/HeaderBar";
 import { useSelector } from "react-redux";
 import styles from "./MainLayout.module.css";
+import { useLayout } from "../../../hooks/useLayout";
 
 /**
  * Layout principal del sistema (autenticado).
  * Incluye Sidebar + Topbar + Contenido principal.
  */
 const MainLayout = () => {
-  const sidebarOpen = useSelector((state) => state.SETTING_APP.estado_sidebar);
+    const { estado_sidebar } = useLayout();
 
   return (
     <div
@@ -18,7 +19,7 @@ const MainLayout = () => {
       }}
     >
       <div
-        className={`${styles.layout} ${sidebarOpen ? "" : styles.layoutCollapsed}`}
+        className={`${styles.layout} ${estado_sidebar ? "" : styles.layoutCollapsed}`}
       >
         <Sidebar />
         <div className={styles.content}>
