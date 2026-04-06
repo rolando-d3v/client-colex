@@ -1,4 +1,4 @@
-import { useColegio } from "../../../colegio/hooks/useColegio";
+import { useColegio } from "../../../admin_colegio/hooks/useColegio";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import styles from "./LoginPage.module.css";
 import { gsap } from "gsap";

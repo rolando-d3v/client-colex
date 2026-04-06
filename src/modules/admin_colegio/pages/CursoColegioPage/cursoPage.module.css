@@ -1,0 +1,38 @@
+.container_cursos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.container_tabs {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: var(--color-fondo-general);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    width: fit-content;
+}
+
+.tab {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-texto-secundario);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab:hover {
+    color: var(--color-texto-principal);
+    background: var(--color-blanco);
+}
+
+.tab.active {
+    background: var(--color-blanco);
+    color: var(--color-secundario03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}

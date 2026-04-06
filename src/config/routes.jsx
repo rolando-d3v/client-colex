@@ -13,6 +13,7 @@ import LoginPage from "../modules/auth/pages/LoginPage/LoginPage";
 import RecoverPage from "../modules/auth/pages/RecoverPage/RecoverPage";
 import RegisterUserPage from "../modules/auth/pages/RegisterUserPage/RegisterUserPage";
 import UnauthorizedPage from "../modules/auth/pages/UnauthorizedPage/UnauthorizedPage";
+import CursoColegio from "../modules/admin_colegio/pages/CursoColegioPage/CursoColegio";
 
 // ─── Placeholder para páginas aún no implementadas ──────────
 const ComingSoon = ({ title }) => (
@@ -112,7 +113,7 @@ export const router = createBrowserRouter([
           },
           {
             path: "/admin-colegio/cursos",
-            element: <ComingSoon title="Cursos" />,
+            element: <CursoColegio />,
           },
           {
             path: "/admin-colegio/docentes",

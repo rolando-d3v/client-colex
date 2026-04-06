@@ -1,0 +1,155 @@
+.card {
+  background: var(--color-blanco);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-borde);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card.inactivo {
+  opacity: 0.7;
+  background: #f5f5f5;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--color-secundario04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secundario03);
+}
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.activo {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.inactivo {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-texto-principal);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-texto-secundario);
+  margin: 0;
+}
+
+.profesor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--color-fondo-general);
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-secundario02);
+  color: var(--color-secundario03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profesorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.profesorLabel {
+  font-size: 11px;
+  color: var(--color-texto-secundario);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profesorNombre {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-texto-principal);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.btnIcon {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  background: var(--color-fondo-general);
+  color: var(--color-texto-secundario);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnIcon:hover {
+  background: var(--color-secundario04);
+  color: var(--color-secundario03);
+}
+
+.btnIcon.edit:hover {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.btnIcon.delete:hover {
+  background: #ffebee;
+  color: #d32f2f;
+}
