@@ -8,6 +8,7 @@ import styles from "./LoginForm.module.css";
 import * as FaIcons from "react-icons/fa";
 import logo from "../../../../assets/logos/defensa.png";
 import { useAuth } from "../../hooks/useAuth";
+import { Link } from "react-router";
 // import { ToastError, ToastSuccess } from "../../../tools/Toasting";
 // import { useSelector, useDispatch } from "react-redux";
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -167,9 +168,9 @@ const LoginForm = () => {
       {/* ── Link a Registro ──────────────────────────── */}
       <div className={styles.footerLink}>
         <span>¿No tienes cuenta?</span>
-        <a href="/register" className={styles.link}>
+        <Link to="/register" className={styles.link}>
           Regístrate
-        </a>
+        </Link>
       </div>
     </form>
   );

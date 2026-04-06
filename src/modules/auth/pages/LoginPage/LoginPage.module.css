@@ -53,12 +53,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    overflow: hidden;
 
     @media screen and (max-width: 500px) {
       background-color: var(--dark);
       border-radius: 0px;
       margin: 0px;
       opacity: 0.9;
+      width: 100%;
+      max-width: 100%;
+      padding: 20px 15px;
+      min-height: auto;
     }
   }
 

@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .row {
@@ -20,13 +23,13 @@
 .label {
   font-size: 0.8rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-texto-principal);
   letter-spacing: 0.02em;
 }
 
 .optional {
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--color-texto-secundario);
   font-size: 0.72rem;
 }
 
@@ -36,16 +39,16 @@
   gap: 0.6rem;
   padding: 0 0.85rem;
   height: 44px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
   border-radius: 12px;
   transition: all 0.25s ease;
 }
 
 .inputWrapper:focus-within {
-  border-color: #6c5ce7;
-  background: rgba(108, 92, 231, 0.08);
-  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+  border-color: var(--color-secundario03);
+  background: var(--color-secundario04);
+  box-shadow: 0 0 0 3px rgba(110, 84, 181, 0.15);
 }
 
 .inputWrapperError {
@@ -58,7 +61,7 @@
 }
 
 .icon {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--color-texto-secundario);
   font-size: 1rem;
   flex-shrink: 0;
 }
@@ -69,19 +72,19 @@
   border: none;
   background: transparent;
   outline: none;
-  color: #fff;
+  color: var(--color-texto-principal);
   font-size: 0.9rem;
   font-family: inherit;
 }
 
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.22);
+  color: var(--color-texto-secundario);
 }
 
 .togglePassword {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--color-texto-secundario);
   cursor: pointer;
   display: flex;
   padding: 4px;
@@ -90,7 +93,7 @@
 }
 
 .togglePassword:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-secundario03);
 }
 
 .error {
@@ -105,8 +108,8 @@
   margin-top: 0.5rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-secundario03), var(--color-secundario01));
+  color: var(--color-blanco);
   font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
@@ -134,7 +137,7 @@
 
 .submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(108, 92, 231, 0.45);
+  box-shadow: 0 8px 28px rgba(110, 84, 181, 0.45);
 }
 
 .submit:hover:not(:disabled)::before {
@@ -169,18 +172,18 @@
   justify-content: center;
   gap: 0.4rem;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--color-texto-secundario);
 }
 
 .link {
-  color: #a29bfe;
+  color: var(--color-secundario01);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .link:hover {
-  color: #6c5ce7;
+  color: var(--color-secundario03);
   text-decoration: underline;
 }
 
@@ -188,5 +191,37 @@
 @media (max-width: 640px) {
   .row {
     grid-template-columns: 1fr;
+  }
+
+  .form {
+    gap: 0.85rem;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+
+  .inputWrapper {
+    height: 46px;
+    padding: 0 0.75rem;
+  }
+
+  .submit {
+    height: 50px;
+  }
+
+  .footerLink {
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 400px) {
+  .group {
+    gap: 0.25rem;
+  }
+
+  .inputWrapper {
+    height: 44px;
   }
 }

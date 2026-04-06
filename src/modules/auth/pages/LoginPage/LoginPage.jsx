@@ -1,5 +1,6 @@
 import { useColegio } from "../../../admin_colegio/hooks/useColegio";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import Fondo from "./Fondo";
 import styles from "./LoginPage.module.css";
 import { gsap } from "gsap";
 import { useRef, useEffect } from "react";
@@ -51,33 +52,24 @@ const LoginPage = () => {
     <div className={styles.page}>
       <div ref={formRef} className={styles.content_form}>
         <LoginForm />
-        {/* <FooterLogin /> */}
       </div>
 
       <div className={styles.div_text}>
         <h1 className={styles.content_text}>
           <span ref={span1Ref} className={styles.x_span}>
-            Sistema de Gestión
+            SISTEMA DE GESTIÓN
           </span>
           <span ref={span2Ref} className={styles.x_span}>
-            Documental
+            EDUCATIVA PARA
           </span>
           <span ref={span3Ref} className={styles.x_span}>
-            "Moche"
+            COLEGIOS
           </span>
         </h1>
       </div>
 
-      <video
-        className={styles.video}
-        preload="auto"
-        muted
-        loop
-        playsInline
-        src="videoBg2.mp4"
-        type="video/mp4"
-        autoPlay
-      />
+
+      <Fondo />
 
       {/* ── Background decoration ─────────────────────── */}
       <div className={styles.bg}>

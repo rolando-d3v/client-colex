@@ -1,158 +1,52 @@
-import React, { useState } from "react";
-// import Particles from "react-particles-js";
+import { useState, useEffect } from "react";
 
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+const images = [
+  "https://res.cloudinary.com/perusap/image/upload/v1775503946/colex/Gemini_Generated_Image_3ifhbc3ifhbc3ifh_aebc3a.png",
+  "https://res.cloudinary.com/perusap/image/upload/v1775503783/colex/pepep_ngree8.png",
+  "https://res.cloudinary.com/perusap/image/upload/v1775501427/colex/photo-1577896851231-70ef18881754_q8z1nk.avif",
+  "https://res.cloudinary.com/perusap/image/upload/v1775501150/colex/cole_rbhtes.jpg",
+  "https://res.cloudinary.com/perusap/image/upload/v1775504633/colex/Gemini_Generated_Image_737f0n737f0n737f_oxjn9g.png",
+  "https://res.cloudinary.com/perusap/image/upload/v1775503509/colex/Gemini_Generated_Image_gscbrkgscbrkgscb_ap9s1e.png"
+];
 
 function Fondo() {
-  // const [anchodeScream, setAnchodeScream] = useState(40);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // let particula = "#fff";
-
-  // window.addEventListener("resize", function () {
-  //   let ancho = window.innerWidth;
-  //   if (ancho < 750) {
-  //     setAnchodeScream(20);
-  //     // console.log("hola 640");
-  //   }
-  // });
-  // console.log(anchodeScream);
-
-
-  // const particlesLoaded = useCallback(async (container) => {
-  //   // await console.log(container);
-  // }, []);
-
-  // const [count, setCount] = useState(50);
-
-  const init = useCallback(async (engine) => {
-    await loadFull(engine);
-  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
       style={{
-        // position: "fixed",
+        position: "absolute",
         width: "100%",
         height: "100%",
-        // backgroundImage:
-        //   "url(https://res.cloudinary.com/perusap/image/upload/v1646101446/EXAM/fondo_fondo_uydhq8.jpg)",
-     
-        // backgroundRepeat: "no-repeat",
-        // backgroundSize: "cover",
-        // backgroundPosition: "center",
       }}
     >
-      <Particles
-        id="tsparticles"
-        // init={particlesInit}
-        // loaded={particlesLoaded}
-        options={{
-          particles: {
-            color: {
-              value: "#fff",
-            },
-            number: {
-              value: 50,
-            },
-            opacity: {
-              value: { min: 0.3, max: 1 },
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 5 },
-            },
-            move: {
-              // direction: "bottom",
-              // direction: "bottom-right",
-              direction: "bottom-left",
-              enable: true,
-              speed: { min: 3, max: 5 },
-              straight: true,
-            },
-          },
-        }}
-        init={init}
-
-        // options={{
-        //   background: {
-        //     color: {
-        //       value: "#0d47a1",
-        //     },
-        //     opacity: 0.2,
-        //   },
-        //   fpsLimit: 120,
-        //   interactivity: {
-        //     events: {
-        //       onClick: {
-        //         enable: true,
-        //         mode: "push",
-        //       },
-        //       onHover: {
-        //         enable: true,
-        //         mode: "repulse",
-        //       },
-        //       resize: true,
-        //     },
-        //     modes: {
-        //       push: {
-        //         quantity: 4,
-        //       },
-        //       repulse: {
-        //         distance: 200,
-        //         duration: 0.4,
-        //       },
-        //     },
-        //   },
-        //   particles: {
-        //     color: {
-        //       value: "#ffffff",
-        //     },
-        //     links: {
-        //       color: "#ffffff",
-        //       distance: 150,
-        //       enable: true,
-        //       opacity: 0.5,
-        //       width: 1,
-        //     },
-        //     collisions: {
-        //       enable: true,
-        //     },
-        //     move: {
-        //       directions: "none",
-        //       enable: true,
-        //       outModes: {
-        //         default: "bounce",
-        //       },
-        //       random: false,
-        //       speed: 2,
-        //       straight: false,
-        //     },
-        //     number: {
-        //       density: {
-        //         enable: true,
-        //         area: 800,
-        //       },
-        //       value: anchodeScream,
-        //     },
-        //     opacity: {
-        //       value: 0.5,
-        //     },
-        //     shape: {
-        //       type: "circle",
-        //     },
-        //     size: {
-        //       value: { min: 1, max: 5 },
-        //     },
-        //   },
-        //   detectRetina: true,
-        // }}
-      />
+      {images.map((img, index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: `url(${img})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: index === currentIndex ? 1 : 0,
+            transition: "opacity 1s ease-in-out",
+            zIndex: index === currentIndex ? 1 : 0,
+          }}
+        />
+      ))}
     </div>
-
   );
 }
 
