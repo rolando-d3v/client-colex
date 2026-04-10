@@ -122,7 +122,7 @@
 .userName {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text-h, #374151);
+  color: var(--text);
 }
 
 .dropdown {

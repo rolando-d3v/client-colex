@@ -1,17 +1,20 @@
-import styles from './card.module.css'
-import { BsBook, BsPencil, BsTrash, BsEye } from 'react-icons/bs'
+import styles from "./card.module.css";
+import { BsBook, BsPencil, BsTrash, BsEye } from "react-icons/bs";
+import { useNavigate } from "react-router";
 
-function CardCurso({ 
-  nombre, 
-  nivel, 
-  grado, 
-  paralelo, 
-  profesor, 
-  estado = 'activo',
+function CardCurso({
+  id,
+  nombre,
+  nivel,
+  grado,
+  paralelo,
+  profesor,
+  estado,
   onVer,
   onEditar,
-  onEliminar
+  onEliminar,
 }) {
+  const navigate = useNavigate();
   return (
     <div className={`${styles.card} ${styles[estado]}`}>
       <div className={styles.header}>
@@ -19,22 +22,24 @@ function CardCurso({
           <BsBook size={24} />
         </div>
         <span className={`${styles.badge} ${styles[estado]}`}>
-          {estado === 'activo' ? 'Activo' : 'Inactivo'}
+          {estado === true ? "Activo" : "Inactivo"}
         </span>
       </div>
 
       <div className={styles.content}>
         <h3 className={styles.title}>{nombre}</h3>
-        <p className={styles.subtitle}>{nivel} • {grado}° "{paralelo}"</p>
-        
+        <p className={styles.subtitle}>
+          {nivel} • {grado}° "{paralelo}"
+        </p>
+
         <div className={styles.profesor}>
           <div className={styles.avatar}>
-            {profesor?.nombre?.charAt(0) || '?'}
+            {profesor?.nombre?.charAt(0) || "?"}
           </div>
           <div className={styles.profesorInfo}>
             <span className={styles.profesorLabel}>Profesor</span>
             <span className={styles.profesorNombre}>
-              {profesor?.nombre || 'Sin asignar'}
+              {profesor?.nombre || "Sin asignar"}
             </span>
           </div>
         </div>
@@ -42,23 +47,35 @@ function CardCurso({
 
       <div className={styles.actions}>
         {onVer && (
-          <button className={styles.btnIcon} onClick={onVer} title="Ver detalle">
+          <button
+            className={styles.btnIcon}
+            title="Ver detalle"
+            onClick={() => navigate(`/admin-colegio/curso/${id}/ver`)}
+          >
             <BsEye />
           </button>
         )}
         {onEditar && (
-          <button className={`${styles.btnIcon} ${styles.edit}`} onClick={onEditar} title="Editar">
+          <button
+            className={`${styles.btnIcon} ${styles.edit}`}
+            onClick={onEditar}
+            title="Editar"
+          >
             <BsPencil />
           </button>
         )}
         {onEliminar && (
-          <button className={`${styles.btnIcon} ${styles.delete}`} onClick={onEliminar} title="Eliminar">
+          <button
+            className={`${styles.btnIcon} ${styles.delete}`}
+            onClick={onEliminar}
+            title="Eliminar"
+          >
             <BsTrash />
           </button>
         )}
       </div>
     </div>
-  )
+  );
 }
 
-export default CardCurso
+export default CardCurso;

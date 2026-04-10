@@ -1,0 +1,208 @@
+.container {
+  background: var(--color-blanco);
+  border-radius: 16px;
+  border: 1px solid var(--color-borde);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ========== HEADER DE TABLA ========== */
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 1fr;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--color-fondo-general);
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-texto-secundario);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========== FILAS ========== */
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 1fr;
+  gap: 12px;
+  padding: 14px 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 14px;
+  color: var(--color-texto-principal);
+  transition: background 0.15s ease;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: var(--color-secundario04);
+}
+
+/* ========== COLUMNAS ========== */
+.colCurso,
+.colNivel,
+.colGrado,
+.colProfesor,
+.colEstado,
+.colAcciones {
+  display: flex;
+  align-items: center;
+}
+
+.colAcciones {
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* ========== CURSO INFO ========== */
+.cursoInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconWrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--color-secundario04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secundario03);
+  flex-shrink: 0;
+}
+
+.cursoNombre {
+  font-weight: 500;
+  color: var(--color-texto-principal);
+}
+
+/* ========== TAG NIVEL ========== */
+.tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--color-fondo-general);
+  color: var(--color-texto-secundario);
+  border: 1px solid var(--color-borde);
+}
+
+/* ========== PROFESOR ========== */
+.profesorInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--color-secundario02);
+  color: var(--color-secundario03);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* ========== BADGE ESTADO ========== */
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge.activo {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.inactivo {
+  background: #ffebee;
+  color: #c62828;
+}
+
+/* ========== BOTONES DE ACCION ========== */
+.btnIcon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  background: var(--color-fondo-general);
+  color: var(--color-texto-secundario);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.btnIcon:hover {
+  background: var(--color-secundario04);
+  color: var(--color-secundario03);
+  border-color: var(--color-secundario02);
+}
+
+.btnIcon.edit:hover {
+  background: #fff3e0;
+  color: #f57c00;
+  border-color: #ffe0b2;
+}
+
+.btnIcon.delete:hover {
+  background: #ffebee;
+  color: #d32f2f;
+  border-color: #ffcdd2;
+}
+
+/* ========== EMPTY STATE ========== */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 48px 20px;
+  color: var(--color-texto-secundario);
+}
+
+.empty p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .tableHeader {
+    display: none;
+  }
+
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 20px;
+  }
+
+  .colCurso {
+    font-weight: 600;
+  }
+
+  .colNivel::before { content: "Nivel: "; font-weight: 500; color: var(--color-texto-secundario); }
+  .colGrado::before { content: "Grado: "; font-weight: 500; color: var(--color-texto-secundario); }
+
+  .colAcciones {
+    justify-content: flex-start;
+    padding-top: 8px;
+    border-top: 1px solid var(--color-borde);
+  }
+}

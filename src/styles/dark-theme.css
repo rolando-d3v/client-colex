@@ -4,11 +4,9 @@
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
-  /* --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5); */
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --social-bg: rgba(244, 243, 236, 0.5);
 
 
   font: 18px/145% var(--sans);
@@ -25,40 +23,12 @@
 
 
 
-
-
-
- /* modifica color en el root para cambiar el tema */
-/*  
-html {
-  color-scheme: light dark;
-}
-:root {
-  --bg: light-dark(#fafafa, #42424242);  
-  --background-theme: light-dark(#375ccc, #000c2a);
-  --background-theme-1: light-dark(#fff, #424242);
-
-  --base: light-dark(#375ccc, #000c2a);
-  --bg-btn: light-dark(#858ffa, #5865f2);
-}
-
-[data-theme="light"] {
-  color-scheme: light;
-}
-
-[data-theme="dark"] {
-  color-scheme: dark;
-} */
-
-
-
-
 html {
   color-scheme: light dark;
 }
 
 :root {
-  --bg:                  light-dark(#fafafa, #1a1a1a);
+  --bg:                  light-dark(#fafafa, #424242);
   --background-theme:    light-dark(#375ccc, #1a1a1a);
   --text:                light-dark(#6b6375, #fafafa);
   --base:                light-dark(#375ccc, #1a1a1a);

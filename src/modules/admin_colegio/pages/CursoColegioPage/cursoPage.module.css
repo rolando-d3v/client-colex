@@ -1,38 +1,130 @@
+/* ========== PÁGINA ========== */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+ 
+  /* background: red; */
+}
+
+/* ========== HEADER ========== */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-texto-principal);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: var(--color-texto-secundario);
+  margin: 0;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ========== TOGGLE DE VISTA ========== */
+.viewToggle {
+  display: flex;
+  background: var(--color-fondo-general);
+  border-radius: 10px;
+  padding: 4px;
+  border: 1px solid var(--color-borde);
+}
+
+.viewBtn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-texto-secundario);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+  color: var(--color-texto-principal);
+}
+
+.viewBtnActive {
+  background: var(--color-blanco);
+  color: var(--color-secundario03);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== BOTÓN CREAR ========== */
+.btnCrear {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--color-secundario01), var(--color-secundario03));
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btnCrear:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(110, 84, 181, 0.4);
+}
+
+.btnCrear:active {
+  transform: translateY(0);
+}
+
+/* ========== GRID DE CURSOS (CARD VIEW) ========== */
 .container_cursos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  /* margin-bottom: 20px; */
 }
 
-.container_tabs {
-    display: flex;
-    gap: 8px;
-    padding: 8px;
-    background: var(--color-fondo-general);
-    border-radius: 12px;
-    margin-bottom: 24px;
-    width: fit-content;
-}
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.tab {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    background: transparent;
-    color: var(--color-texto-secundario);
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
+  .headerRight {
+    justify-content: space-between;
+  }
 
-.tab:hover {
-    color: var(--color-texto-principal);
-    background: var(--color-blanco);
-}
+  .pageTitle {
+    font-size: 20px;
+  }
 
-.tab.active {
-    background: var(--color-blanco);
-    color: var(--color-secundario03);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  .container_cursos {
+    grid-template-columns: 1fr;
+  }
 }

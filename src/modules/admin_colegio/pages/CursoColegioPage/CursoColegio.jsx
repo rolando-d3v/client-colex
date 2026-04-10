@@ -1,10 +1,20 @@
 import styles from "./cursoPage.module.css";
 import CardCurso from "../../components/card_curso/CardCurso";
+import ListaCursos from "../../components/lista_cursos/ListaCursos";
+import ModalCrearCurso from "../../components/modal_crear_curso/ModalCrearCurso";
 import { useState } from "react";
-import RegistrarCurso from "../../components/registrarColegio/RegistrarCurso";
+import { BsPlus, BsGrid3X3Gap, BsListUl } from "react-icons/bs";
+import { useCurso } from "../../hooks/useCurso";
+import { useAuth } from "../../../auth/hooks/useAuth";
 
 function CursoColegio() {
-  const [activeTab, setActiveTab] = useState("cursos");
+  const [viewMode, setViewMode] = useState("card"); // "card" | "list"
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { colegio } = useAuth();
+
+  const { query_curso } = useCurso(colegio?.id);
+
+  console.log(query_curso.data);
 
   const arrayCursos = [
     {
@@ -79,49 +89,118 @@ function CursoColegio() {
       profesor: { nombre: "Juan Pérez" },
       estado: "activo",
     },
+    {
+      nombre: "Machine learning",
+      nivel: "Secundaria",
+      grado: 1,
+      paralelo: "A",
+      profesor: { nombre: "Juan Pérez" },
+      estado: "activo",
+    },
+    {
+      nombre: "Machine learning",
+      nivel: "Secundaria",
+      grado: 1,
+      paralelo: "A",
+      profesor: { nombre: "Juan Pérez" },
+      estado: "activo",
+    },
+    {
+      nombre: "Machine learning",
+      nivel: "Secundaria",
+      grado: 1,
+      paralelo: "A",
+      profesor: { nombre: "Juan Pérez" },
+      estado: "activo",
+    },
   ];
 
   return (
-    <div>
-      <div className={styles.container_tabs}>
-        <button
-          className={`${styles.tab} ${activeTab === "cursos" ? styles.active : ""}`}
-          onClick={() => setActiveTab("cursos")}
-        >
-          Cursos
-        </button>
-        <button
-          className={`${styles.tab} ${activeTab === "crear" ? styles.active : ""}`}
-          onClick={() => setActiveTab("crear")}
-        >
-          Crear curso
-        </button>
+    <div className={styles.page}>
+      {/* ===== HEADER ===== */}
+      <div className={styles.pageHeader}>
+        <div className={styles.headerLeft}>
+          <h1 className={styles.pageTitle}>Administración de cursos</h1>
+          <p className={styles.pageSubtitle}>
+            {query_curso?.data?.length} cursos registrados
+          </p>
+        </div>
+
+        <div className={styles.headerRight}>
+          {/* Toggle de vista */}
+          <div className={styles.viewToggle}>
+            <button
+              className={`${styles.viewBtn} ${viewMode === "card" ? styles.viewBtnActive : ""}`}
+              onClick={() => setViewMode("card")}
+              title="Vista tarjeta"
+            >
+              <BsGrid3X3Gap size={16} />
+            </button>
+            <button
+              className={`${styles.viewBtn} ${viewMode === "list" ? styles.viewBtnActive : ""}`}
+              onClick={() => setViewMode("list")}
+              title="Vista lista"
+            >
+              <BsListUl size={16} />
+            </button>
+          </div>
+
+          {/* Botón crear curso */}
+          <button
+            className={styles.btnCrear}
+            onClick={() => setIsModalOpen(true)}
+          >
+            <BsPlus size={20} />
+            Crear curso
+          </button>
+        </div>
       </div>
 
-      {activeTab === "cursos" && (
+      {/* ===== CONTENIDO ===== */}
+      {viewMode === "card" ? (
         <div className={styles.container_cursos}>
-          {arrayCursos.map((curso, index) => (
+          {query_curso?.data?.map((curso) => (
             <CardCurso
-              key={index}
+              key={curso.id}
+              id={curso.id}
               nombre={curso.nombre}
               nivel={curso.nivel}
               grado={curso.grado}
               paralelo={curso.paralelo}
               profesor={curso.profesor}
-              estado={curso.estado}
-              onVer={() => {}}
-              onEditar={() => {}}
-              onEliminar={() => {}}
+              estado={curso.is_active}
+              onVer={() => {
+                console.log("ver");
+              }}
+              onEditar={() => {
+                console.log("editar");
+              }}
+              onEliminar={() => {
+                console.log("eliminar");
+              }}
             />
           ))}
         </div>
+      ) : (
+        <ListaCursos
+          cursos={arrayCursos}
+          onVer={() => {
+            console.log("ver");
+          }}
+          onEditar={() => {
+            console.log("editar");
+          }}
+          onEliminar={() => {
+            console.log("eliminar");
+          }}
+        />
       )}
 
-      {activeTab === "crear" && (
-        <div className={styles.crear_curso}>
-          <RegistrarCurso />
-        </div>
-      )}
+      {/* ===== MODAL CREAR CURSO ===== */}
+      <ModalCrearCurso
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }
