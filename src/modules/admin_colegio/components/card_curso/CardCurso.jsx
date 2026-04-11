@@ -49,8 +49,8 @@ function CardCurso({
         {onVer && (
           <button
             className={styles.btnIcon}
+            onClick={() => navigate(`/admin-colegio/curso/${id}/${onVer}`)}
             title="Ver detalle"
-            onClick={() => navigate(`/admin-colegio/curso/${id}/ver`)}
           >
             <BsEye />
           </button>
@@ -58,7 +58,7 @@ function CardCurso({
         {onEditar && (
           <button
             className={`${styles.btnIcon} ${styles.edit}`}
-            onClick={onEditar}
+            onClick={() => navigate(`/admin-colegio/curso/${id}/${onEditar}`)}
             title="Editar"
           >
             <BsPencil />

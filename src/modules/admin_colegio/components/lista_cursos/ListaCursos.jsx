@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router';
 import styles from './listaCursos.module.css'
 import { BsBook, BsPencil, BsTrash, BsEye } from 'react-icons/bs'
 
@@ -7,6 +8,7 @@ function ListaCursos({
   onEditar,
   onEliminar
 }) {
+  const navigate = useNavigate();
   return (
     <div className={styles.container}>
       {/* Encabezado de la tabla */}
@@ -58,7 +60,7 @@ function ListaCursos({
             {onVer && (
               <button
                 className={styles.btnIcon}
-                onClick={() => onVer(curso)}
+                onClick={() => navigate(`/admin-colegio/curso/${curso.id}/${onVer}`)}
                 title="Ver detalle"
               >
                 <BsEye />
@@ -67,7 +69,7 @@ function ListaCursos({
             {onEditar && (
               <button
                 className={`${styles.btnIcon} ${styles.edit}`}
-                onClick={() => onEditar(curso)}
+                onClick={() => navigate(`/admin-colegio/curso/${curso.id}/${onEditar}`)}
                 title="Editar"
               >
                 <BsPencil />

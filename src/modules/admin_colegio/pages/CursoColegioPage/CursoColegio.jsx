@@ -6,11 +6,14 @@ import { useState } from "react";
 import { BsPlus, BsGrid3X3Gap, BsListUl } from "react-icons/bs";
 import { useCurso } from "../../hooks/useCurso";
 import { useAuth } from "../../../auth/hooks/useAuth";
+import useUIPreferences from "../../../../hooks/useUIPreferences";
 
 function CursoColegio() {
-  const [viewMode, setViewMode] = useState("card"); // "card" | "list"
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { colegio } = useAuth();
+  const { preferences, updatePreference } = useUIPreferences();
+
+  console.log(preferences);
 
   const { query_curso } = useCurso(colegio?.id);
 
@@ -130,15 +133,21 @@ function CursoColegio() {
           {/* Toggle de vista */}
           <div className={styles.viewToggle}>
             <button
-              className={`${styles.viewBtn} ${viewMode === "card" ? styles.viewBtnActive : ""}`}
-              onClick={() => setViewMode("card")}
+              className={`${styles.viewBtn} ${preferences.cursoView === "card" ? styles.viewBtnActive : ""}`}
+              onClick={() => {
+                updatePreference("cursoView", "card");
+                
+              }}
               title="Vista tarjeta"
             >
               <BsGrid3X3Gap size={16} />
             </button>
             <button
-              className={`${styles.viewBtn} ${viewMode === "list" ? styles.viewBtnActive : ""}`}
-              onClick={() => setViewMode("list")}
+              className={`${styles.viewBtn} ${preferences.cursoView === "lista" ? styles.viewBtnActive : ""}`}
+              onClick={() => {
+                updatePreference("cursoView", "lista");
+               
+              }}
               title="Vista lista"
             >
               <BsListUl size={16} />
@@ -157,7 +166,7 @@ function CursoColegio() {
       </div>
 
       {/* ===== CONTENIDO ===== */}
-      {viewMode === "card" ? (
+      {preferences.cursoView === "card" ? (
         <div className={styles.container_cursos}>
           {query_curso?.data?.map((curso) => (
             <CardCurso
@@ -169,12 +178,8 @@ function CursoColegio() {
               paralelo={curso.paralelo}
               profesor={curso.profesor}
               estado={curso.is_active}
-              onVer={() => {
-                console.log("ver");
-              }}
-              onEditar={() => {
-                console.log("editar");
-              }}
+              onVer="ver"
+              onEditar="editar"
               onEliminar={() => {
                 console.log("eliminar");
               }}
@@ -184,12 +189,8 @@ function CursoColegio() {
       ) : (
         <ListaCursos
           cursos={arrayCursos}
-          onVer={() => {
-            console.log("ver");
-          }}
-          onEditar={() => {
-            console.log("editar");
-          }}
+          onVer="ver"
+          onEditar="editar"
           onEliminar={() => {
             console.log("eliminar");
           }}
