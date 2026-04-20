@@ -1,9 +1,9 @@
 .container {
-  background: var(--color-blanco);
+  background: var(--color-fondo-card);
   border-radius: 16px;
   border: 1px solid var(--color-borde);
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--sombra-card);
 }
 
 /* ========== HEADER DE TABLA ========== */
@@ -12,7 +12,7 @@
   grid-template-columns: 2fr 1fr 1fr 1.5fr 0.8fr 1fr;
   gap: 12px;
   padding: 14px 20px;
-  background: var(--color-fondo-general);
+  background: var(--color-fondo-input);
   border-bottom: 1px solid var(--color-borde);
   font-size: 12px;
   font-weight: 600;
@@ -30,7 +30,7 @@
   align-items: center;
   border-bottom: 1px solid var(--color-borde);
   font-size: 14px;
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
   transition: background 0.15s ease;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .tableRow:hover {
-  background: var(--color-secundario04);
+  background: var(--color-primario-muysuave);
 }
 
 /* ========== COLUMNAS ========== */
@@ -69,17 +69,17 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: var(--color-secundario04);
+  background: var(--color-primario-muysuave);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-secundario03);
+  color: var(--color-primario-hover);
   flex-shrink: 0;
 }
 
 .cursoNombre {
   font-weight: 500;
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
 }
 
 /* ========== TAG NIVEL ========== */
@@ -88,9 +88,9 @@
   border-radius: 6px;
   font-size: 12px;
   font-weight: 500;
-  background: var(--color-fondo-general);
-  color: var(--color-texto-secundario);
-  border: 1px solid var(--color-borde);
+  background: var(--color-tag-fondo);
+  color: var(--color-tag-texto);
+  border: 1px solid var(--color-tag-borde);
 }
 
 /* ========== PROFESOR ========== */
@@ -104,8 +104,8 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: var(--color-secundario02);
-  color: var(--color-secundario03);
+  background: var(--color-primario-suave);
+  color: var(--color-primario-hover);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,13 +123,13 @@
 }
 
 .badge.activo {
-  background: #e8f5e9;
-  color: #2e7d32;
+  background: var(--color-exito-fondo);
+  color: var(--color-exito-texto);
 }
 
 .badge.inactivo {
-  background: #ffebee;
-  color: #c62828;
+  background: var(--color-error-fondo);
+  color: var(--color-error-texto);
 }
 
 /* ========== BOTONES DE ACCION ========== */
@@ -138,7 +138,7 @@
   height: 32px;
   border: 1px solid var(--color-borde);
   border-radius: 8px;
-  background: var(--color-fondo-general);
+  background: var(--color-fondo-input);
   color: var(--color-texto-secundario);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -148,22 +148,22 @@
   font-size: 13px;
 }
 
-.btnIcon:hover {
-  background: var(--color-secundario04);
-  color: var(--color-secundario03);
-  border-color: var(--color-secundario02);
+.btnIcon.info:hover {
+  background: var(--color-info-fondo);
+  color: var(--color-info);
+  border-color: var(--color-info-borde);
 }
 
 .btnIcon.edit:hover {
-  background: #fff3e0;
-  color: #f57c00;
-  border-color: #ffe0b2;
+  background: var(--color-advertencia-fondo);
+  color: var(--color-advertencia);
+  border-color: var(--color-advertencia-borde);
 }
 
 .btnIcon.delete:hover {
-  background: #ffebee;
-  color: #d32f2f;
-  border-color: #ffcdd2;
+  background: var(--color-error-fondo);
+  color: var(--color-error);
+  border-color: var(--color-error-borde);
 }
 
 /* ========== EMPTY STATE ========== */

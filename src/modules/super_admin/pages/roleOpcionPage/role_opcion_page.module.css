@@ -1,0 +1,450 @@
+
+/* ═══════════════════════════════════════════════════════════════
+   ROLE OPCION PAGE
+   ═══════════════════════════════════════════════════════════════ */
+.page {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-borde-divisor, #e5e7eb);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-texto-principal, #1f2937);
+  margin: 0;
+}
+
+.titleIcon {
+  color: var(--color-primario, #3b82f6);
+}
+
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-primario, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnPrimary:hover {
+  background: var(--color-primario-hover, #2563eb);
+  transform: translateY(-1px);
+}
+
+/* ── Content ───────────────────────────────────────────────── */
+.content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.rolesSection {
+  background: var(--color-fondo-card, #ffffff);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: var(--sombra-card, 0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-texto-principal, #1f2937);
+  margin: 0 0 1rem 0;
+}
+
+/* ── Roles List ───────────────────────────────────────────── */
+.rolesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rolCard {
+  border: 1px solid var(--color-borde-divisor, #e5e7eb);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.rolCard:hover {
+  border-color: var(--color-primario, #3b82f6);
+}
+
+.rolCardActive {
+  border-color: var(--color-primario, #3b82f6);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.rolHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  background: var(--color-fondo-hover, #f9fafb);
+  transition: background 0.2s ease;
+}
+
+.rolHeader:hover {
+  background: var(--color-fondo-sidebar-activo, #eff6ff);
+}
+
+.rolInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rolExpandIcon {
+  color: var(--color-texto-secundario, #6b7280);
+  transition: transform 0.2s ease;
+}
+
+.rolNombre {
+  font-weight: 600;
+  color: var(--color-texto-principal, #1f2937);
+}
+
+.rolActions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btnAction {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--color-texto-secundario, #6b7280);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnAction:hover {
+  background: var(--color-fondo-hover, #f3f4f6);
+  color: var(--color-texto-principal, #1f2937);
+}
+
+.btnDelete:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+/* ── Opciones Section ──────────────────────────────────────── */
+.opcionesSection {
+  padding: 1rem;
+  background: var(--color-fondo-sidebar, #f8fafc);
+  border-top: 1px solid var(--color-borde-divisor, #e5e7eb);
+}
+
+.opcionesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.opcionesTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto-secundario, #6b7280);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btnAddOpcion {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.4rem 0.75rem;
+  background: transparent;
+  color: var(--color-primario, #3b82f6);
+  border: 1px solid var(--color-primario, #3b82f6);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnAddOpcion:hover {
+  background: var(--color-primario, #3b82f6);
+  color: white;
+}
+
+/* ── Opciones Tree ────────────────────────────────────────── */
+.opcionesTree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.opcionItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.opcionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid var(--color-borde-divisor, #e5e7eb);
+  transition: all 0.2s ease;
+}
+
+.opcionRow:hover {
+  border-color: var(--color-primario, #3b82f6);
+  background: var(--color-fondo-hover, #f9fafb);
+}
+
+.opcionInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.expandIcon {
+  color: var(--color-texto-secundario, #6b7280);
+  flex-shrink: 0;
+}
+
+.opcionNombre {
+  font-weight: 500;
+  color: var(--color-texto-principal, #1f2937);
+  font-size: 0.9rem;
+}
+
+.opcionPath {
+  font-size: 0.75rem;
+  color: var(--color-texto-muted, #9ca3af);
+  background: var(--color-fondo-hover, #f3f4f6);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.opcionActions {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.opcionChildren {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Empty State ─────────────────────────────────────────── */
+.emptyState {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-texto-secundario, #6b7280);
+  font-style: italic;
+}
+
+/* ── Modal ─────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-borde-divisor, #e5e7eb);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-texto-principal, #1f2937);
+}
+
+.btnClose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--color-texto-secundario, #6b7280);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnClose:hover {
+  background: var(--color-fondo-hover, #f3f4f6);
+  color: var(--color-texto-principal, #1f2937);
+}
+
+.modalForm {
+  padding: 1.25rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-texto-principal, #1f2937);
+  margin-bottom: 0.4rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-borde-divisor, #e5e7eb);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--color-primario, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+}
+
+.helpText {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-texto-secundario, #6b7280);
+  margin-top: 0.25rem;
+}
+
+.modalActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-borde-divisor, #e5e7eb);
+}
+
+.btnCancel {
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--color-texto-secundario, #6b7280);
+  border: 1px solid var(--color-borde-divisor, #e5e7eb);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnCancel:hover {
+  background: var(--color-fondo-hover, #f3f4f6);
+  color: var(--color-texto-principal, #1f2937);
+}
+
+.btnSave {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-primario, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnSave:hover {
+  background: var(--color-primario-hover, #2563eb);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .page {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    max-width: 100%;
+  }
+}
+

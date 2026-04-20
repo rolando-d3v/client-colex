@@ -140,7 +140,7 @@ function CursoColegio() {
               }}
               title="Vista tarjeta"
             >
-              <BsGrid3X3Gap size={16} />
+              <BsGrid3X3Gap size={16}  className=""  />
             </button>
             <button
               className={`${styles.viewBtn} ${preferences.cursoView === "lista" ? styles.viewBtnActive : ""}`}

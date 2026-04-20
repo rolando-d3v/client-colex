@@ -25,7 +25,7 @@
 .pageTitle {
   font-size: 24px;
   font-weight: 700;
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
   margin: 0;
   line-height: 1.2;
 }
@@ -45,10 +45,11 @@
 /* ========== TOGGLE DE VISTA ========== */
 .viewToggle {
   display: flex;
-  background: var(--color-fondo-general);
+  background: var(--color-fondo-input);
   border-radius: 10px;
   padding: 4px;
-  border: 1px solid var(--color-borde);
+  border: 1px solid var(--color-tag-borde);
+  /* border: 1px solid var(--color-borde); */
 }
 
 .viewBtn {
@@ -66,13 +67,14 @@
 }
 
 .viewBtn:hover {
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
 }
 
 .viewBtnActive {
-  background: var(--color-blanco);
-  color: var(--color-secundario03);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: var(--color-tag-fondo);
+  /* background: var(--color-fondo-card); */
+  color: var(--color-tag-texto);
+  box-shadow: 1px 0px 4px var(--color-tag-texto);;
 }
 
 /* ========== BOTÓN CREAR ========== */
@@ -83,8 +85,8 @@
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--color-secundario01), var(--color-secundario03));
-  color: white;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-primario-hover));
+  color: var(--color-badge-texto);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -94,7 +96,7 @@
 
 .btnCrear:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(110, 84, 181, 0.4);
+  box-shadow: var(--sombra-dropdown);
 }
 
 .btnCrear:active {

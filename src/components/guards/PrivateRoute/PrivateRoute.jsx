@@ -12,15 +12,16 @@ import { useAuth } from "../../../modules/auth/hooks/useAuth";
  * por lo que aquí solo se verifica autenticación y roles.
  */
 const PrivateRoute = ({ allowedRoles }) => {
-  const { isAuthenticated, roles } = useAuth();
+  const { isAuthenticated, role_opcion } = useAuth();
+  // const { isAuthenticated, roles } = useAuth();
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
   console.log(allowedRoles);
-  console.log(roles);
+  console.log(role_opcion);
 
-  const roleId = roles.map((role) => role.id);
+  const roleId = role_opcion.map((role) => role.id);
 
   if (allowedRoles && allowedRoles.length > 0) {
     const hasPermission = allowedRoles.some((role) => roleId.includes(role));

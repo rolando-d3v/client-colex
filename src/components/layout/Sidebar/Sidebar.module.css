@@ -3,14 +3,14 @@
    ═══════════════════════════════════════════════════════════════ */
 .sidebar {
   width: var(--sidebar-width, 260px);
-  background: #1c1c1e; /* Color oscuro idéntico a la imagen */
+  background: var(--color-fondo-sidebar);
   display: flex;
   flex-direction: column;
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 100;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra-card);
   border: none;
 }
 
@@ -59,7 +59,7 @@
  
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-texto-sidebar-muted);
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
@@ -70,8 +70,8 @@
 }
 
 .toggle:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-texto-sidebar);
+  background: var(--color-hover-overlay);
 }
 
 /* ── Colegio Badge ───────────────────────────────────────────── */
@@ -81,9 +81,9 @@
   justify-content: center;
   padding: 0.6rem 1rem;
   margin: 0 1.2rem 1rem 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-fondo-sidebar-activo);
   border-radius: 12px;
-  color: #a3a3a3;
+  color: var(--color-texto-sidebar-muted);
   font-weight: 500;
   text-align: center;
   word-break: break-word;
@@ -107,10 +107,10 @@
 .nav {
   flex: 1;
   overflow-y: auto;
-  padding: 0 1.25rem;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav::-webkit-scrollbar {
@@ -118,47 +118,151 @@
 }
 
 .nav::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--color-hover-overlay);
   border-radius: 4px;
 }
 
-.link {
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Línea vertical conectora para items con hijos - desde el centro del icono hacia abajo */
+.menuItem:has(.menuChildren) {
+  position: relative;
+}
+
+.menuItem:has(.menuChildren)::before {
+  content: '';
+  position: absolute;
+  left: 24px; /* 1rem padding + ~8px centro del icono de 1.25rem */
+  top: 44px;
+  width: 2px;
+  bottom: 8px;
+  background: var(--color-borde-divisor, #d1d5db);
+  z-index: 0;
+}
+
+/* Línea horizontal conectora para items hijos - desde la línea vertical */
+.menuChildren .menuItem {
+  position: relative;
+}
+
+.menuChildren .menuItem::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 17px;
+  width: 18px;
+  height: 2px;
+  background: var(--color-borde-divisor, #d1d5db);
+  z-index: 0;
+}
+
+/* Línea vertical continua para items hijos conectados */
+.menuChildren .menuItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--color-borde-divisor, #d1d5db);
+  z-index: -1;
+}
+
+.menuHeader {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  color: #a3a3a3;
+  gap: 0.85rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  color: var(--color-texto-sidebar-muted);
   text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.link:hover {
-  color: #fff;
-}
-
-.linkActive {
-  color: #fff;
-  background: #2d2d2d; /* Fondo gris igual a la imagen 'Dashboard' */
+  font-size: 0.9rem;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  position: relative;
 }
 
-.linkActive::before {
-  display: none; /* Remueve barra vertical azul/morada */
+/* Estilo para items hijos - sin fondo de hover completo, solo texto */
+.menuChildren .menuHeader {
+  padding: 0.4rem 1rem 0.4rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  border-radius: 0 8px 8px 0;
+  margin-left: 42px;
+  gap: 0;
 }
 
-.linkIcon {
+.menuChildren .menuHeader:hover {
+  background: transparent;
+  color: var(--color-primario);
+}
+
+.menuHeader:hover {
+  color: var(--color-texto-sidebar);
+  background: var(--color-fondo-hover);
+}
+
+.menuHeaderActive {
+  color: var(--color-primario);
+  /* background: var(--color-primario-suave); */
+  font-weight: 600;
+}
+
+.menuIcon {
   font-size: 1.25rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  transition: color 0.25s ease;
 }
 
-.linkText {
+.menuHeaderActive .menuIcon {
+  color: var(--color-primario);
+}
+
+.menuText {
+  flex: 1;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.2px;
+}
+
+/* Texto de items hijos más pequeño */
+.menuChildren .menuText {
+  font-size: 0.85rem;
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--color-texto-secundario);
+}
+
+.menuToggleOpen {
+  transform: rotate(180deg);
+}
+
+.menuChildren {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 2px;
+  margin-left: 0;
+  overflow: hidden;
+  position: relative;
+  padding-left: 0;
+  padding-bottom: 0;
 }
 
 /* Ajustes menú en estado colapsado para centrar iconos */
@@ -166,10 +270,14 @@
   padding: 0 0.75rem;
 }
 
-.sidebarCollapsed .link {
+.sidebarCollapsed .menuHeader {
   justify-content: center;
   padding: 0.8rem 0;
   gap: 0;
+}
+
+.sidebarCollapsed .menuChildren {
+  display: none;
 }
 
 /* ── Footer / User ───────────────────────────────────────────── */
@@ -194,7 +302,7 @@
   background: none;
   border: none;
   border-radius: 12px;
-  color: #a3a3a3;
+  color: var(--color-texto-sidebar-muted);
   font-size: 0.95rem;
   font-family: inherit;
   cursor: pointer;
@@ -208,15 +316,15 @@
 }
 
 .logoutBtn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.05); /* Similar a links inactivos */
+  color: var(--color-texto-sidebar);
+  background: var(--color-hover-overlay);
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-150%);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--sombra-modal);
   }
 
   .sidebar:not(.sidebarCollapsed) {

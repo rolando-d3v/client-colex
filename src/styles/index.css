@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;550;600;700;800&display=swap');
-
-@import "./dark-theme.css";
 @import "./color.css";
 
 /* textos y tipografias */
@@ -23,8 +21,8 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.5;
-  color: var(--text);
-  background: var(--bg);
+  color: var(--color-texto-body);
+  background-color: var(--color-body-app);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

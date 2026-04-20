@@ -23,7 +23,7 @@
 .label {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
   letter-spacing: 0.02em;
 }
 
@@ -39,25 +39,25 @@
   gap: 0.6rem;
   padding: 0 0.85rem;
   height: 44px;
-  background: var(--color-blanco);
+  background: var(--color-fondo-card);
   border: 1px solid var(--color-borde);
   border-radius: 12px;
   transition: all 0.25s ease;
 }
 
 .inputWrapper:focus-within {
-  border-color: var(--color-secundario03);
-  background: var(--color-secundario04);
-  box-shadow: 0 0 0 3px rgba(110, 84, 181, 0.15);
+  border-color: var(--color-primario-hover);
+  background: var(--color-primario-muysuave);
+  box-shadow: var(--focus-ring);
 }
 
 .inputWrapperError {
-  border-color: #ff6b6b;
-  background: rgba(255, 107, 107, 0.06);
+  border-color: var(--color-error);
+  background: var(--color-error-fondo);
 }
 
 .inputWrapperError:focus-within {
-  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+  box-shadow: 0 0 0 3px var(--color-error-borde);
 }
 
 .icon {
@@ -72,13 +72,13 @@
   border: none;
   background: transparent;
   outline: none;
-  color: var(--color-texto-principal);
+  color: var(--color-texto-heading);
   font-size: 0.9rem;
   font-family: inherit;
 }
 
 .input::placeholder {
-  color: var(--color-texto-secundario);
+  color: var(--color-texto-placeholder);
 }
 
 .togglePassword {
@@ -93,12 +93,12 @@
 }
 
 .togglePassword:hover {
-  color: var(--color-secundario03);
+  color: var(--color-primario-hover);
 }
 
 .error {
   font-size: 0.74rem;
-  color: #ff6b6b;
+  color: var(--color-error);
   padding-left: 0.2rem;
 }
 
@@ -108,8 +108,8 @@
   margin-top: 0.5rem;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--color-secundario03), var(--color-secundario01));
-  color: var(--color-blanco);
+  background: linear-gradient(135deg, var(--color-primario-hover), var(--color-primario));
+  color: var(--color-badge-texto);
   font-size: 1rem;
   font-weight: 600;
   font-family: inherit;
@@ -137,7 +137,7 @@
 
 .submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(110, 84, 181, 0.45);
+  box-shadow: var(--sombra-modal);
 }
 
 .submit:hover:not(:disabled)::before {
@@ -156,8 +156,8 @@
 .spinner {
   width: 22px;
   height: 22px;
-  border: 2.5px solid rgba(255, 255, 255, 0.3);
-  border-top-color: #fff;
+  border: 2.5px solid var(--color-borde-suave);
+  border-top-color: var(--color-badge-texto);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
@@ -176,14 +176,14 @@
 }
 
 .link {
-  color: var(--color-secundario01);
+  color: var(--color-texto-link);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
 }
 
 .link:hover {
-  color: var(--color-secundario03);
+  color: var(--color-texto-link-hover);
   text-decoration: underline;
 }
 

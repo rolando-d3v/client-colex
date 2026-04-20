@@ -16,6 +16,12 @@ const iconMap = {
   BiUser,
   // fi
   FiGrid,
+  FiHome,
+  FiUsers,
+  FiBook,
+  FiDollarSign,
+  FiMail,
+  FiSettings,
 };
 
 export const DynamicIcon = ({ iconName }) => {

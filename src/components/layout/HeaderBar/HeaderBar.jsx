@@ -9,7 +9,7 @@ import { FiMenu, FiBell, FiUser, FiChevronUp, FiShield } from "react-icons/fi";
 const HeaderBar = () => {
 
   const navigate = useNavigate();
-  const { user, roles, activeRole, handleLogout, handleSetActiveRole } =
+  const { user, role_opcion, activeRole, handleLogout, handleSetActiveRole } =
     useAuth();
   const { estado_sidebar, handleOpenToggleSidebar } = useLayout();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -34,7 +34,9 @@ const HeaderBar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  console.log(selectedRole);
+
+  console.log(role_opcion);
+
 
   return (
     <header className={styles.headerBar}>
@@ -55,8 +57,9 @@ const HeaderBar = () => {
           <FiShield className={styles.roleIcon} />
           <span className={styles.roleTriggerLabel}>
             {selectedRole.nombre
-              ? roles.find((r) => r.id === selectedRole.id)?.nombre
+              ? role_opcion.find((r) => r.id === selectedRole.id)?.nombre
               : activeRole?.nombre}
+              
           </span>
           <FiChevronUp
             className={`${styles.roleChevron} ${roleDropdownOpen ? styles.roleChevronOpen : ""}`}
@@ -65,7 +68,7 @@ const HeaderBar = () => {
 
         {roleDropdownOpen && (
           <div className={styles.roleDropdown}>
-            {roles.map((role) => (
+            {role_opcion?.map((role) => (
               <button
                 key={role.id}
                 className={`${styles.roleOption} ${

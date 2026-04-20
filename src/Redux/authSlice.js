@@ -8,6 +8,7 @@ const initialState = {
 
   // roles del usuario  ["super_admin", "admin_colegio"]
   roles: [],
+  role_opcion: [],
 
   // rol activo seleccionado (cuando tiene múltiples)
   activeRole: null,
@@ -30,10 +31,11 @@ const authSlice = createSlice({
   reducers: {
     // Establecer credenciales (login o verify exitoso)
     setCredentials: (state, action) => {
-      const { user, roles, colegio } = action.payload;
+      const { user, roles, colegio, role_opcion } = action.payload;      
       state.user = user;
       state.roles = roles || [];
-      state.activeRole = roles?.[0] || null;
+      state.role_opcion = role_opcion || [];
+      state.activeRole = role_opcion?.[0] || null;
       state.colegio = colegio || null;
       state.isAuthenticated = true;
       state.error = null;
@@ -43,6 +45,7 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.roles = [];
+      state.role_opcion = [];
       state.activeRole = null;
       state.colegio = null;
       state.isAuthenticated = false;

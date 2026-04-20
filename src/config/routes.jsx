@@ -15,6 +15,7 @@ import RegisterUserPage from "../modules/auth/pages/RegisterUserPage/RegisterUse
 import UnauthorizedPage from "../modules/auth/pages/UnauthorizedPage/UnauthorizedPage";
 import CursoColegio from "../modules/admin_colegio/pages/CursoColegioPage/CursoColegio";
 import LayoutCursoID from "../modules/admin_colegio/pages/IdCursoPage/layout/LayoutCursoID";
+import RoleOpcionPage from "../modules/super_admin/pages/roleOpcionPage/RoleOpcionPage";
 
 // ─── Placeholder para páginas aún no implementadas ──────────
 const ComingSoon = ({ title }) => (
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
           {
             path: "/super-admin/colegios",
             element: <ComingSoon title="Gestión de Colegios" />,
+          },
+          {
+            path: "/super-admin/role-opcion",
+            element: <RoleOpcionPage />,
           },
         ],
       },

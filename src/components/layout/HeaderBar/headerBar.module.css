@@ -12,8 +12,8 @@
   /* left: 0; */
   left: var(--sidebar-width, 260px);
   height: var(--topbar-height, 60px);
-  background: var(--topbar-bg, var(--bg, #fff));
-  border-bottom: 1px solid var(--topbar-border, var(--border, #e5e4e7));
+  background: var(--color-fondo-card);
+  border-bottom: 1px solid var(--color-borde);
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
@@ -27,7 +27,7 @@
   display: none;
   background: none;
   border: none;
-  color: var(--text-h, #374151);
+  color: var(--color-texto-heading);
   font-size: 1.25rem;
   cursor: pointer;
   padding: 6px;
@@ -36,7 +36,7 @@
 }
 
 .menuBtn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--color-fondo-hover);
 }
 
 .spacer {
@@ -53,7 +53,7 @@
   position: relative;
   background: none;
   border: none;
-  color: var(--text, #6b7280);
+  color: var(--color-texto-secundario);
   font-size: 1.15rem;
   cursor: pointer;
   padding: 8px;
@@ -63,8 +63,8 @@
 }
 
 .iconBtn:hover {
-  color: var(--text-h, #374151);
-  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-texto-heading);
+  background: var(--color-fondo-hover);
 }
 
 .badge {
@@ -73,8 +73,8 @@
   right: 4px;
   min-width: 16px;
   height: 16px;
-  background: #ff6b6b;
-  color: #fff;
+  background: var(--color-error);
+  color: var(--color-badge-texto);
   font-size: 0.65rem;
   font-weight: 700;
   border-radius: 8px;
@@ -103,15 +103,15 @@
 }
 
 .userBtn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--color-fondo-hover);
 }
 
 .avatar {
   width: 34px;
   height: 34px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-primario-suave));
+  color: var(--color-badge-texto);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,7 +122,7 @@
 .userName {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--text);
+  color: var(--color-texto-body);
 }
 
 .dropdown {
@@ -130,10 +130,10 @@
   top: calc(100% + 8px);
   right: 0;
   width: 220px;
-  background: var(--bg, #fff);
-  border: 1px solid var(--border, #e5e4e7);
+  background: var(--color-fondo-elevado);
+  border: 1px solid var(--color-borde);
   border-radius: 14px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--sombra-dropdown);
   padding: 0.5rem;
   animation: dropdownIn 0.15s ease;
   z-index: 200;
@@ -159,18 +159,18 @@
 
 .dropdownHeader strong {
   font-size: 0.88rem;
-  color: var(--text-h, #1a1a2e);
+  color: var(--color-texto-heading);
 }
 
 .dropdownHeader small {
   font-size: 0.75rem;
-  color: var(--text, #6b7280);
+  color: var(--color-texto-secundario);
   text-transform: capitalize;
 }
 
 .dropdownDivider {
   border: none;
-  border-top: 1px solid var(--border, #e5e4e7);
+  border-top: 1px solid var(--color-borde);
   margin: 0.25rem 0.5rem;
 }
 
@@ -185,21 +185,21 @@
   border-radius: 8px;
   font-size: 0.85rem;
   font-family: inherit;
-  color: var(--text-h, #374151);
+  color: var(--color-texto-heading);
   cursor: pointer;
   transition: background 0.15s;
 }
 
 .dropdownItem:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--color-fondo-hover);
 }
 
 .dropdownItemDanger {
-  color: #ff6b6b;
+  color: var(--color-error);
 }
 
 .dropdownItemDanger:hover {
-  background: rgba(255, 107, 107, 0.08);
+  background: var(--color-error-fondo);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -215,9 +215,9 @@
   align-items: center;
   gap: 0.65rem;
   padding: 0.5rem 0.9rem;
-  background: #1a1d2e;
-  color: #e2e4ec;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-fondo-sidebar);
+  color: var(--color-texto-sidebar);
+  border: 1.5px solid var(--color-borde-suave);
   border-radius: 10px;
   cursor: pointer;
   font-family: inherit;
@@ -228,13 +228,13 @@
 }
 
 .roleTrigger:hover {
-  background: #22253a;
-  border-color: rgba(255, 255, 255, 0.14);
+  background: var(--color-fondo-sidebar-activo);
+  border-color: var(--color-borde);
 }
 
 .roleTriggerOpen {
-  background: #22253a;
-  border-color: rgba(255, 255, 255, 0.16);
+  background: var(--color-fondo-sidebar-activo);
+  border-color: var(--color-borde);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-color: transparent;
@@ -242,7 +242,7 @@
 
 .roleIcon {
   font-size: 1.1rem;
-  color: #a5b4fc;
+  color: var(--color-primario);
   flex-shrink: 0;
 }
 
@@ -256,7 +256,7 @@
 
 .roleChevron {
   font-size: 1rem;
-  color: #9ca3af;
+  color: var(--color-texto-secundario);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform: rotate(180deg);
   flex-shrink: 0;
@@ -271,15 +271,15 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: #1a1d2e;
-  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-fondo-sidebar);
+  border: 1.5px solid var(--color-borde-suave);
   border-top: none;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   padding: 0.35rem 0;
   z-index: 200;
   animation: roleDropIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--sombra-dropdown);
 }
 
 @keyframes roleDropIn {
@@ -299,7 +299,7 @@
   padding: 0.55rem 1rem 0.55rem 2.7rem;
   background: none;
   border: none;
-  color: #c9cdd6;
+  color: var(--color-texto-sidebar-muted);
   font-family: inherit;
   font-size: 0.86rem;
   font-weight: 400;
@@ -309,14 +309,14 @@
 }
 
 .roleOption:hover {
-  background: rgba(165, 180, 252, 0.08);
-  color: #fff;
+  background: var(--color-fondo-hover);
+  color: var(--color-texto-sidebar);
 }
 
 .roleOptionActive {
-  color: #a5b4fc;
+  color: var(--color-primario);
   font-weight: 500;
-  background: rgba(165, 180, 252, 0.06);
+  background: var(--color-primario-muysuave);
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */

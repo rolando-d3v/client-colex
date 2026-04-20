@@ -59,7 +59,7 @@ function ListaCursos({
           <div className={styles.colAcciones}>
             {onVer && (
               <button
-                className={styles.btnIcon}
+                className={`${styles.btnIcon} ${styles.info}`}
                 onClick={() => navigate(`/admin-colegio/curso/${curso.id}/${onVer}`)}
                 title="Ver detalle"
               >

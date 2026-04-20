@@ -15,7 +15,7 @@ const MainLayout = () => {
   return (
     <div
       style={{
-        padding: "6px",
+        padding: "8px",
       }}
     >
       <div

@@ -6,20 +6,20 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #24243e 100%);
+  background: linear-gradient(135deg, var(--purple-900) 0%, var(--color-fondo-sidebar) 50%, var(--color-fondo-elevado) 100%);
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(108, 92, 231, 0.3);
-  border-top-color: #a29bfe;
+  border: 3px solid var(--color-primario-suave);
+  border-top-color: var(--color-primario);
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }
 
 .text {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-texto-sidebar-muted);
   font-size: 0.9rem;
 }
 

@@ -28,7 +28,7 @@
     font-family: system-ui;
     font-weight: 600;
     letter-spacing: 0px;
-    color: var(--text-white);
+    color: var(--color-texto-sidebar);
     text-transform: capitalize;
   }
 }
@@ -41,15 +41,15 @@
     display: flex;
     margin: 25px 0;
     align-items: center;
-    box-shadow: 2px 2px 1.5px 1.9px rgba(0, 0, 0, 0.25);
-    background-color: #202225;
+    box-shadow: 0 2px 6px var(--color-fondo-overlay);
+    background-color: var(--color-fondo-sidebar);
 
     .icon_login {
       margin-left: 6px;
-      color: var(--text-dark);
+      color: var(--color-texto-sidebar-muted);
       transition: 0.3s all ease;
       &:hover {
-        color: #fff;
+        color: var(--color-texto-sidebar);
       }
     }
 
@@ -68,7 +68,7 @@
         font-size: 10px;
         font-family: "Montserrat", sans-serif;
         font-weight: 800;
-        color: #72767d;
+        color: var(--color-texto-secundario);
         position: absolute;
         top: 50%;
         transform: translateY(-60%);
@@ -85,7 +85,7 @@
         padding: 2px 0px 2px 8px;
         font-family: "Montserrat", sans-serif;
 
-        color: #72767d;
+        color: var(--color-texto-body);
         outline: none;
         font-size: 12px;
         transition: all 0.3s ease;
@@ -102,7 +102,7 @@
         z-index: 90;
         width: 20px;
         height: 20px;
-        color: var(--text-dark);
+        color: var(--color-texto-sidebar-muted);
       }
 
        /* Hide Arrows From Input Number */
@@ -128,12 +128,12 @@
 }
 
 .numero_error {
-  background-color: #420909ea !important;
-  color: white !important;
+  background-color: var(--color-error-fondo) !important;
+  color: var(--color-error-texto) !important;
 }
 
 .error_alert {
-  color: #d15f5fcc;
+  color: var(--color-error);
   font-size: 9.5px;
   position: absolute;
   top: 0;
@@ -148,14 +148,14 @@
  /* cambio con focus y hover */
 .section_input {
   &.focus {
-    box-shadow: 2px 2px 0px 1.9px rgba(14, 181, 231, 0.25);
+    box-shadow: 0 2px 6px var(--color-primario-suave);
     .icon_login {
-      color: #0eb5e7;
+      color: var(--color-progreso);
     }
 
     div {
       .label_form {
-        color: #0eb5e7;
+        color: var(--color-progreso);
         top: -8px;
         font-size: 8px;
         left: -28px;
@@ -170,7 +170,7 @@
   margin: 26px 0 0px 0;
 
   .__login {
-    border: solid 2px var(--gray);
+    border: solid 2px var(--color-borde);
     outline: none;
     font-size: 1.05rem;
     font-weight: 600;
@@ -178,16 +178,16 @@
     width: 100%;
     height: 34px;
     border-radius: 4px;
-    color: var(--text-white);
+    color: var(--color-texto-sidebar);
      /* background-color: #3ba55d; */
-    background-color: var(--color-secundario01);
+    background-color: var(--color-primario);
     cursor: not-allowed;
     user-select: none;
     transition: 0.1s all ease;
 
     &.__checked {
-      border: solid 1px #3ba55d;
-      background: #3ba55d;
+      border: solid 1px var(--color-exito);
+      background: var(--color-exito);
       cursor: pointer;
       color: white;
     }

@@ -30,7 +30,7 @@
 
 .page {
   position: relative;
-  border: 9px solid black;
+  border: 9px solid var(--color-fondo-sidebar);
   border-radius: 25px;
   min-height: calc(100vh - 20px);
   display: grid;
@@ -43,10 +43,10 @@
 
   .content_form {
     z-index: 9999;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: var(--color-fondo-overlay);
     backdrop-filter: blur(14px);
     border-radius: 16px;
-    border: 2px solid #2f2f2f86;
+    border: 2px solid var(--color-borde-suave);
     padding: 30px;
     margin: 30px 0 30px 35px;
     min-height: 600px;
@@ -56,7 +56,7 @@
     overflow: hidden;
 
     @media screen and (max-width: 500px) {
-      background-color: var(--dark);
+      background-color: var(--color-fondo-sidebar);
       border-radius: 0px;
       margin: 0px;
       opacity: 0.9;
@@ -82,8 +82,8 @@
       font-size: 4.8rem;
       line-height: 4.8rem;
       letter-spacing: -0.04rem;
-      color: #fff;
-      filter: drop-shadow(2px 2px 1px #000);
+      color: var(--color-texto-sidebar);
+      filter: drop-shadow(2px 2px 1px var(--purple-900));
 
       @media screen and (max-width: 1200px) {
         font-size: 3.2rem;
@@ -111,14 +111,14 @@
       }
 
       .x_span:nth-child(1) {
-        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+        background-image: linear-gradient(90deg, var(--color-info), var(--color-progreso));
       }
       .x_span:nth-child(2) {
-        background-image: linear-gradient(90deg, #000cfa, #00ff95);
+        background-image: linear-gradient(90deg, var(--color-primario), var(--color-exito));
         animation-delay: 3.33s;
       }
       .x_span:nth-child(3) {
-        background-image: linear-gradient(90deg, #0458ff, #f60818);
+        background-image: linear-gradient(90deg, var(--color-primario-activo), var(--color-error));
         animation-delay: 6.66s;
       }
     }
@@ -151,7 +151,7 @@
 .bgCircle1 {
   width: 400px;
   height: 400px;
-  background: #6c5ce7;
+  background: var(--color-primario);
   top: -100px;
   right: -100px;
   animation: pulseBg 8s ease-in-out infinite;
@@ -160,7 +160,7 @@
 .bgCircle2 {
   width: 300px;
   height: 300px;
-  background: #00cec9;
+  background: var(--color-progreso);
   bottom: -80px;
   left: -80px;
   animation: pulseBg 10s ease-in-out infinite 2s;
@@ -169,7 +169,7 @@
 .bgCircle3 {
   width: 200px;
   height: 200px;
-  background: #fd79a8;
+  background: var(--color-gamificacion);
   top: 50%;
   left: 60%;
   animation: pulseBg 6s ease-in-out infinite 1s;
