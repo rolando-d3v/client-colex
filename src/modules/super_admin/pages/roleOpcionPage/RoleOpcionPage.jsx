@@ -103,6 +103,27 @@ function RoleOpcionPage() {
   };
 
 
+//   const buildTree = (items, parentId = null) => {
+//   return items
+//     .filter((item) => item.padre_id === parentId)
+//     .map((item) => {
+//       const children = buildTree(items, item.id);
+
+//       // ❗ Solo incluir si tiene padre
+//       if (item.padre_id === null) {
+//         return children; // saltamos el nodo raíz
+//       }
+
+//       return {
+//         ...item,
+//         children,
+//       };
+//     })
+//     .flat();
+// };
+
+
+
   const toggleOpcion = (opcionId) => {
     setExpandedOpciones((prev) => ({
       ...prev,
@@ -147,6 +168,17 @@ function RoleOpcionPage() {
   // Crear/Editar Opción
   const handleSaveOpcion = async (e) => {
     e.preventDefault();
+
+    if (opcionForm.padre_id === null) {
+      const isCreatingRoot = !editingItem && opciones.length > 0;
+      const isMovingToRoot = editingItem && editingItem.padre_id !== null && opciones.length > 0;
+
+      if (isCreatingRoot || isMovingToRoot) {
+        alert("No se puede crear más de una opción en el primer nivel (raíz) porque ya existe una.");
+        return;
+      }
+    }
+
     try {
       const data = { ...opcionForm, rol_id: selectedRol.id };
       if (editingItem) {
