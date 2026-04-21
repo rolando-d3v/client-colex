@@ -73,10 +73,14 @@ html {
   --color-border-app:           light-dark(#11111e,          #3c3c3e);
   --color-fondo-app:            light-dark(#f9f9fb,          #1F1F1F);
   --color-fondo-sidebar:        light-dark(#1a1a2e,          #0d0d0d);
+  --color-fondo-sidebar-activo: light-dark(#252543,          #1a1a2e);
+  
+  --color-fondo-opcion-hover: light-dark(#ababe9,          #1a1a2e);
+  
+
   --color-fondo-card:           light-dark(#ffffff,          #2C2C2C);
   --color-fondo-elevado:        light-dark(#ffffff,          #22223a);
   --color-fondo-input:          light-dark(#f4f4f8,          #252540);
-  --color-fondo-sidebar-activo: light-dark(#252543,          #1a1a2e);
   --color-fondo-overlay:        light-dark(rgba(26,26,46,.55), rgba(0,0,0,.72));
   --color-fondo-activo:         light-dark(#f1effe,          rgba(123,97,255,.15));
   --color-fondo-hover:          light-dark(#f4f3ff,          rgba(123,97,255,.10));

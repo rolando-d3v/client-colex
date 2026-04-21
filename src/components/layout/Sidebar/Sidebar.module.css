@@ -205,7 +205,7 @@
 
 .menuHeader:hover {
   color: var(--color-texto-sidebar);
-  background: var(--color-fondo-hover);
+  background: rgba(123,97,255,.10);
 }
 
 .menuHeaderActive {

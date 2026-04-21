@@ -27,6 +27,7 @@ function RoleOpcionPage() {
   const [selectedRol, setSelectedRol] = useState(null);
   const [opciones, setOpciones] = useState([]);
   const [expandedRoles, setExpandedRoles] = useState({});
+  const [expandedOpciones, setExpandedOpciones] = useState({});
   const [loading, setLoading] = useState(false);
 
   // Modals
@@ -35,7 +36,11 @@ function RoleOpcionPage() {
   const [editingItem, setEditingItem] = useState(null);
 
   // Form states
-  const [rolForm, setRolForm] = useState({ nombre: "", icono: "FiGrid", descripcion: "" });
+  const [rolForm, setRolForm] = useState({
+    nombre: "",
+    icono: "FiGrid",
+    descripcion: "",
+  });
   const [opcionForm, setOpcionForm] = useState({
     nombre: "",
     icono: "",
@@ -97,6 +102,14 @@ function RoleOpcionPage() {
       }));
   };
 
+
+  const toggleOpcion = (opcionId) => {
+    setExpandedOpciones((prev) => ({
+      ...prev,
+      [opcionId]: !prev[opcionId],
+    }));
+  };
+
   const toggleRol = async (rol) => {
     if (selectedRol?.id === rol.id) {
       setSelectedRol(null);
@@ -142,7 +155,13 @@ function RoleOpcionPage() {
         await createOpcionService(data);
       }
       setShowOpcionModal(false);
-      setOpcionForm({ nombre: "", icono: "", path: "", padre_id: null, orden: 1 });
+      setOpcionForm({
+        nombre: "",
+        icono: "",
+        path: "",
+        padre_id: null,
+        orden: 1,
+      });
       setEditingItem(null);
       loadOpciones(selectedRol.id);
     } catch (error) {
@@ -219,15 +238,31 @@ function RoleOpcionPage() {
 
   // Renderizar árbol de opciones recursivamente
   const renderOpcionesTree = (items, level = 0) => {
+    console.log("items", items);
     return items.map((opcion) => (
-      <div key={opcion.id} className={styles.opcionItem} style={{ marginLeft: `${level * 20}px` }}>
+      <div
+        key={opcion.id}
+        className={styles.opcionItem}
+        style={{ marginLeft: `${level * 30}px` }}
+      >
         <div className={styles.opcionRow}>
           <div className={styles.opcionInfo}>
             {opcion.children?.length > 0 && (
-              <FiChevronDown className={styles.expandIcon} />
+              <span
+                className={styles.expandIconWrapper}
+                onClick={() => toggleOpcion(opcion.id)}
+              >
+                {expandedOpciones[opcion.id] ? (
+                  <FiChevronDown className={styles.expandIcon} />
+                ) : (
+                  <FiChevronRight className={styles.expandIcon} />
+                )}
+              </span>
             )}
             <span className={styles.opcionNombre}>{opcion.nombre}</span>
-            {opcion.path && <span className={styles.opcionPath}>{opcion.path}</span>}
+            {opcion.path && (
+              <span className={styles.opcionPath}>{opcion.path}</span>
+            )}
           </div>
           <div className={styles.opcionActions}>
             <button
@@ -253,7 +288,7 @@ function RoleOpcionPage() {
             </button>
           </div>
         </div>
-        {opcion.children?.length > 0 && (
+        {opcion.children?.length > 0 && expandedOpciones[opcion.id] && (
           <div className={styles.opcionChildren}>
             {renderOpcionesTree(opcion.children, level + 1)}
           </div>
@@ -279,14 +314,17 @@ function RoleOpcionPage() {
       <div className={styles.content}>
         {/* Lista de Roles */}
         <div className={styles.rolesSection}>
-          <h3 className={styles.sectionTitle}>Roles del Sistema</h3>
           <div className={styles.rolesList}>
+            <h3 className={styles.sectionTitle}>Roles del Sistema</h3>
             {roles.map((rol) => (
               <div
                 key={rol.id}
                 className={`${styles.rolCard} ${selectedRol?.id === rol.id ? styles.rolCardActive : ""}`}
               >
-                <div className={styles.rolHeader} onClick={() => toggleRol(rol)}>
+                <div
+                  className={styles.rolHeader}
+                  onClick={() => toggleRol(rol)}
+                >
                   <div className={styles.rolInfo}>
                     {expandedRoles[rol.id] ? (
                       <FiChevronDown className={styles.rolExpandIcon} />
@@ -295,7 +333,10 @@ function RoleOpcionPage() {
                     )}
                     <span className={styles.rolNombre}>{rol.nombre}</span>
                   </div>
-                  <div className={styles.rolActions} onClick={(e) => e.stopPropagation()}>
+                  <div
+                    className={styles.rolActions}
+                    onClick={(e) => e.stopPropagation()}
+                  >
                     <button
                       className={styles.btnAction}
                       onClick={() => openEditRolModal(rol)}
@@ -327,7 +368,9 @@ function RoleOpcionPage() {
                     </div>
 
                     {opciones.length === 0 ? (
-                      <p className={styles.emptyState}>No hay opciones configuradas</p>
+                      <p className={styles.emptyState}>
+                        No hay opciones configuradas
+                      </p>
                     ) : (
                       <div className={styles.opcionesTree}>
                         {renderOpcionesTree(opciones)}
@@ -342,16 +385,26 @@ function RoleOpcionPage() {
               <p className={styles.emptyState}>No hay roles configurados</p>
             )}
           </div>
+
+          <div>
+            <h5>lista de personal que tiene este rol</h5>
+          </div>
         </div>
       </div>
 
       {/* Modal Crear/Editar Rol */}
       {showRolModal && (
-        <div className={styles.modalOverlay} onClick={() => setShowRolModal(false)}>
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setShowRolModal(false)}
+        >
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3>{editingItem ? "Editar Rol" : "Nuevo Rol"}</h3>
-              <button className={styles.btnClose} onClick={() => setShowRolModal(false)}>
+              <button
+                className={styles.btnClose}
+                onClick={() => setShowRolModal(false)}
+              >
                 <FiX />
               </button>
             </div>
@@ -361,7 +414,9 @@ function RoleOpcionPage() {
                 <input
                   type="text"
                   value={rolForm.nombre}
-                  onChange={(e) => setRolForm({ ...rolForm, nombre: e.target.value })}
+                  onChange={(e) =>
+                    setRolForm({ ...rolForm, nombre: e.target.value })
+                  }
                   placeholder="Ej: Administrador"
                   required
                 />
@@ -370,7 +425,9 @@ function RoleOpcionPage() {
                 <label>Icono</label>
                 <select
                   value={rolForm.icono}
-                  onChange={(e) => setRolForm({ ...rolForm, icono: e.target.value })}
+                  onChange={(e) =>
+                    setRolForm({ ...rolForm, icono: e.target.value })
+                  }
                 >
                   {iconosDisponibles.map((icono) => (
                     <option key={icono} value={icono}>
@@ -383,13 +440,19 @@ function RoleOpcionPage() {
                 <label>Descripción</label>
                 <textarea
                   value={rolForm.descripcion}
-                  onChange={(e) => setRolForm({ ...rolForm, descripcion: e.target.value })}
+                  onChange={(e) =>
+                    setRolForm({ ...rolForm, descripcion: e.target.value })
+                  }
                   placeholder="Descripción del rol..."
                   rows={3}
                 />
               </div>
               <div className={styles.modalActions}>
-                <button type="button" className={styles.btnCancel} onClick={() => setShowRolModal(false)}>
+                <button
+                  type="button"
+                  className={styles.btnCancel}
+                  onClick={() => setShowRolModal(false)}
+                >
                   Cancelar
                 </button>
                 <button type="submit" className={styles.btnSave}>
@@ -404,11 +467,17 @@ function RoleOpcionPage() {
 
       {/* Modal Crear/Editar Opción */}
       {showOpcionModal && (
-        <div className={styles.modalOverlay} onClick={() => setShowOpcionModal(false)}>
+        <div
+          className={styles.modalOverlay}
+          onClick={() => setShowOpcionModal(false)}
+        >
           <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3>{editingItem ? "Editar Opción" : "Nueva Opción de Menú"}</h3>
-              <button className={styles.btnClose} onClick={() => setShowOpcionModal(false)}>
+              <button
+                className={styles.btnClose}
+                onClick={() => setShowOpcionModal(false)}
+              >
                 <FiX />
               </button>
             </div>
@@ -418,7 +487,9 @@ function RoleOpcionPage() {
                 <input
                   type="text"
                   value={opcionForm.nombre}
-                  onChange={(e) => setOpcionForm({ ...opcionForm, nombre: e.target.value })}
+                  onChange={(e) =>
+                    setOpcionForm({ ...opcionForm, nombre: e.target.value })
+                  }
                   placeholder="Ej: Gestión de Usuarios"
                   required
                 />
@@ -428,7 +499,9 @@ function RoleOpcionPage() {
                   <label>Icono (opcional)</label>
                   <select
                     value={opcionForm.icono}
-                    onChange={(e) => setOpcionForm({ ...opcionForm, icono: e.target.value })}
+                    onChange={(e) =>
+                      setOpcionForm({ ...opcionForm, icono: e.target.value })
+                    }
                   >
                     <option value="">Sin icono</option>
                     {iconosDisponibles.map((icono) => (
@@ -444,7 +517,12 @@ function RoleOpcionPage() {
                     type="number"
                     min="1"
                     value={opcionForm.orden}
-                    onChange={(e) => setOpcionForm({ ...opcionForm, orden: parseInt(e.target.value) })}
+                    onChange={(e) =>
+                      setOpcionForm({
+                        ...opcionForm,
+                        orden: parseInt(e.target.value),
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -453,7 +531,9 @@ function RoleOpcionPage() {
                 <input
                   type="text"
                   value={opcionForm.path}
-                  onChange={(e) => setOpcionForm({ ...opcionForm, path: e.target.value })}
+                  onChange={(e) =>
+                    setOpcionForm({ ...opcionForm, path: e.target.value })
+                  }
                   placeholder="Ej: /admin/usuarios"
                 />
               </div>
@@ -462,7 +542,10 @@ function RoleOpcionPage() {
                 <select
                   value={opcionForm.padre_id || ""}
                   onChange={(e) =>
-                    setOpcionForm({ ...opcionForm, padre_id: e.target.value || null })
+                    setOpcionForm({
+                      ...opcionForm,
+                      padre_id: e.target.value || null,
+                    })
                   }
                 >
                   <option value="">Raíz (sin padre)</option>
@@ -473,7 +556,11 @@ function RoleOpcionPage() {
                 </small>
               </div>
               <div className={styles.modalActions}>
-                <button type="button" className={styles.btnCancel} onClick={() => setShowOpcionModal(false)}>
+                <button
+                  type="button"
+                  className={styles.btnCancel}
+                  onClick={() => setShowOpcionModal(false)}
+                >
                   Cancelar
                 </button>
                 <button type="submit" className={styles.btnSave}>
@@ -489,4 +576,4 @@ function RoleOpcionPage() {
   );
 }
 
-export default RoleOpcionPage
+export default RoleOpcionPage;
