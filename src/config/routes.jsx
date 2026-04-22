@@ -126,8 +126,8 @@ export const router = createBrowserRouter([
             element: <LayoutCursoID />,
           },
           {
-            path: "/admin-colegio/docentes",
-            element: <ComingSoon title="Docentes" />,
+            path: "/admin-colegio/configuracion",
+            element: <ComingSoon title="Configuración del Colegio" />,
           },
           {
             path: "/admin-colegio/alumnos",

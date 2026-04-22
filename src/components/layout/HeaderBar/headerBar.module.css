@@ -271,6 +271,7 @@
   top: 100%;
   left: 0;
   right: 0;
+  
   background: var(--color-fondo-sidebar);
   border: 1.5px solid var(--color-borde-suave);
   border-top: none;
@@ -309,8 +310,8 @@
 }
 
 .roleOption:hover {
-  background: var(--color-fondo-hover);
-  color: var(--color-texto-sidebar);
+  background: var(--color-fondo-opcion-hover);
+  color: var(--color-texto-opcion-hover);
 }
 
 .roleOptionActive {

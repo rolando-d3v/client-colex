@@ -128,48 +128,48 @@
   position: relative;
 }
 
-/* Línea vertical conectora para items con hijos - desde el centro del icono hacia abajo */
+/* Línea vertical conectora para items con hijos */
 .menuItem:has(.menuChildren) {
   position: relative;
 }
 
 .menuItem:has(.menuChildren)::before {
-  content: '';
-  position: absolute;
-  left: 24px; /* 1rem padding + ~8px centro del icono de 1.25rem */
-  top: 44px;
-  width: 2px;
-  bottom: 8px;
-  background: var(--color-borde-divisor, #d1d5db);
-  z-index: 0;
+  display: none;
 }
 
-/* Línea horizontal conectora para items hijos - desde la línea vertical */
+/* Líneas conectoras para items hijos (estilo árbol curvo) */
 .menuChildren .menuItem {
   position: relative;
 }
 
-.menuChildren .menuItem::before {
+.menuChildren .menuItem::before,
+.menuChildren .menuItem::after {
   content: '';
   position: absolute;
-  left: 24px;
-  top: 17px;
-  width: 18px;
-  height: 2px;
-  background: var(--color-borde-divisor, #d1d5db);
+  left: 24px; /* Centro del icono del padre */
+  border-left: 2px solid var(--color-borde-divisor, #666666);
   z-index: 0;
 }
 
-/* Línea vertical continua para items hijos conectados */
+/* Curva para cada hijo */
+.menuChildren .menuItem::before {
+  top: -2px; /* Cubrir espacio (gap) */
+  height: calc(50% + 2px); /* Hasta la mitad del item */
+  width: 16px; /* Ancho de la rama horizontal */
+  border-bottom: 2px solid var(--color-borde-divisor, #666666);
+  border-bottom-left-radius: 12px; /* Curvatura suave */
+}
+
+/* El primer hijo necesita una línea más larga hacia arriba para conectar con el padre */
+.menuChildren .menuItem:first-child::before {
+  top: -12px;
+  height: calc(50% + 12px);
+}
+
+/* Línea vertical continua hacia el siguiente hijo (excepto el último) */
 .menuChildren .menuItem:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background: var(--color-borde-divisor, #d1d5db);
-  z-index: -1;
+  top: 20%;
+  bottom: -2px; /* Conectar con el ::before del siguiente hijo */
 }
 
 .menuHeader {
@@ -186,21 +186,25 @@
   transition: all 0.25s ease;
   user-select: none;
   position: relative;
+  z-index: 1; /* Para estar sobre las líneas */
+ 
 }
 
-/* Estilo para items hijos - sin fondo de hover completo, solo texto */
+/* Estilo para items hijos - estilo dashboard de la imagen */
 .menuChildren .menuHeader {
-  padding: 0.4rem 1rem 0.4rem 0.5rem;
-  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem !important;
+  font-size: 0.875rem;
   font-weight: 400;
-  border-radius: 0 8px 8px 0;
-  margin-left: 42px;
+  border-radius: 8px;
+  margin-left: 46px; /* Espacio para las líneas del árbol */
+  margin-right: 12px;
+  margin-bottom: 2px;
   gap: 0;
 }
 
 .menuChildren .menuHeader:hover {
-  background: transparent;
-  color: var(--color-primario);
+  background: var(--color-hover-overlay, rgba(0, 0, 0, 0.04));
+  color: var(--color-texto-sidebar, #1f2937);
 }
 
 .menuHeader:hover {
@@ -210,8 +214,13 @@
 
 .menuHeaderActive {
   color: var(--color-primario);
-  /* background: var(--color-primario-suave); */
   font-weight: 600;
+}
+
+.menuChildren .menuHeader.menuHeaderActive {
+  background: var(--color-hover-overlay, rgba(0, 0, 0, 0.06));
+  color: var(--color-texto-sidebar, #111827);
+  font-weight: 500;
 }
 
 .menuIcon {

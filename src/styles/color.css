@@ -75,10 +75,18 @@ html {
   --color-fondo-sidebar:        light-dark(#1a1a2e,          #0d0d0d);
   --color-fondo-sidebar-activo: light-dark(#252543,          #1a1a2e);
   
-  --color-fondo-opcion-hover: light-dark(#ababe9,          #1a1a2e);
-  
 
+  /* color para lista de opciones */
+  --color-fondo-opcion-hover:   light-dark(#ababe9,          #1a1a2e);
+  --color-texto-opcion-hover:   light-dark(#1c1c2e,          #f0eeff);
+
+
+  /* color para tarjetas */
   --color-fondo-card:           light-dark(#ffffff,          #2C2C2C);
+
+
+
+
   --color-fondo-elevado:        light-dark(#ffffff,          #22223a);
   --color-fondo-input:          light-dark(#f4f4f8,          #252540);
   --color-fondo-overlay:        light-dark(rgba(26,26,46,.55), rgba(0,0,0,.72));
